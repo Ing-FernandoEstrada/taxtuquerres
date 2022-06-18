@@ -4,14 +4,32 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Carbon;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
-
+use Spatie\Permission\Traits\HasRoles;
+/**
+ * Class User
+ *
+ * @property int $id
+ * @property string $email
+ * @property string $phone
+ * @property string $address
+ * @property string $password
+ * @property string $status
+ * @property int $person_id
+ * @property Person $person
+ * @property Carbon $email_verified_at
+ * @property $profile_photo_url
+ *
+ */
 class User extends Authenticatable
 {
+    use HasRoles;
     use HasApiTokens;
     use HasFactory;
     use HasProfilePhoto;
@@ -24,9 +42,12 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $fillable = [
-        'name',
         'email',
+        'phone',
+        'address',
         'password',
+        'status',
+        'person_id',
     ];
 
     /**
@@ -48,6 +69,7 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'person_id' => 'int'
     ];
 
     /**
@@ -58,4 +80,8 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function person(): BelongsTo {
+        return $this->belongsTo(Person::class);
+    }
 }
