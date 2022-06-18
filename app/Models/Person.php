@@ -20,7 +20,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property string $surnames
  * @property Carbon $birthday
  *
- * @property Collection|User[] $users
+ * @property User $user
  *
  * @package App\Models
  */
