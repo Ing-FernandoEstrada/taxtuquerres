@@ -12,8 +12,7 @@ submit(){
         redirect:'follow',
         body:JSON.stringify(this.data)
     }).then(response=>{
-        if(response.redirected) window.location.replace(response.url);
-        else if(!response.ok) return response.json();
+        return response.json();
     }).then(data=>{
         this.visible = true;
         const errors = data.errors;
@@ -27,6 +26,11 @@ submit(){
                 parent.appendChild(message);
                 message.textContent = errors[key].toString();
             }
+        } else {
+            /*if(data.two_factor) {
+            } else {
+            }*/
+            window.location.replace('/dashboard');
         }
     })
 }

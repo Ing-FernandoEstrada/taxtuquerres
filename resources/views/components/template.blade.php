@@ -9,7 +9,7 @@
         @yield('style')
         @livewireStyles
     </head>
-    <body>
+    <body class="background-image">
         {{$slot}}
         @livewireScripts
         <script src="{{mix('/js/app.js')}}"></script>
