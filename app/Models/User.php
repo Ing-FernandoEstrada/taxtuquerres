@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -35,6 +36,8 @@ class User extends Authenticatable
     use HasProfilePhoto;
     use Notifiable;
     use TwoFactorAuthenticatable;
+
+    public $timestamps = false;
 
     /**
      * The attributes that are mass assignable.
@@ -83,5 +86,13 @@ class User extends Authenticatable
 
     public function person(): BelongsTo {
         return $this->belongsTo(Person::class);
+    }
+
+    protected function name(): Attribute {
+        return new Attribute(get:fn()=>$this->person->names);
+    }
+
+    protected function role(): Attribute {
+        return new Attribute(get:fn()=>$this->roles()->first());
     }
 }

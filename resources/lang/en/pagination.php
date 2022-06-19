@@ -13,7 +13,8 @@ return [
     |
     */
 
-    'previous' => '&laquo; Previous',
-    'next' => 'Next &raquo;',
-
+    'title' => 'Pagination',
+    'previous' => 'Previous',
+    'next' => 'Next',
+    'message' => 'Showing :first to :last of :total results',
 ];

@@ -13,13 +13,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('people', function (Blueprint $table) {
+        Schema::create('documents', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('document_id')->references('id')->on('documents')->cascadeOnUpdate()->restrictOnDelete();
-            $table->string('identification')->unique();
-            $table->string('names');
-            $table->string('surnames');
-            $table->date('birthday');
+            $table->string('code',2)->unique();
+            $table->string('name')->unique();
         });
     }
 
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('people');
+        Schema::dropIfExists('documents');
     }
 };

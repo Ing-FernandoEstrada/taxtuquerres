@@ -1,6 +1,18 @@
+@auth()
 <x-template>
-    <div class="flex relative min-h-screen">
+    <div class="flex flex-row h-screen">
         <x-sidebar/>
-        <div class="flex-1 p-6 overflow-y-auto overflow-x-hidden">{{$slot}}</div>
+        <div class="flex flex-1 flex-col">
+            @livewire('navigation-menu')
+            <div class="h-100 p-4 overflow-y-auto">
+                {{$slot}}
+            </div>
+        </div>
     </div>
 </x-template>
+@endauth
+@guest()
+    <x-guest-layout>
+        {{$slot}}
+    </x-guest-layout>
+@endguest

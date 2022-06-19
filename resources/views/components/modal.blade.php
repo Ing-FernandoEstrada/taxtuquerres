@@ -1,5 +1,5 @@
 <div {{$attributes->merge(['class' => 'modal'])}}>
-    <div class="modal-dialog">
+    <div class="modal-dialog{{$dialogclass}}">
         <div class="modal-content">
             <div class="modal-header">
                 {{$header}}

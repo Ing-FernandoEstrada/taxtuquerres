@@ -1,6 +1,6 @@
 <div class="sidebar" :class="showSide?'left-0':''">
     <div class="side-header">
-        <x-button tag="a" href="{{route('main')}}"><img src="{{asset('/storage/img/logo.png')}}" alt="{{config('app.name')}}" class="w-full"/></x-button>
+        <x-button tag="a" href="{{asset('/')}}"><img src="{{asset('/storage/img/logo.png')}}" alt="{{config('app.name')}}" class="w-full"/></x-button>
     </div>
     <div class="side-section">
         <label class="side-section-title">{{__('Administrative Management')}}</label>
@@ -8,7 +8,7 @@
         @else <x-button tag="a" href="{{route('users.index')}}" class="side-item"><span class="fa fa-users mr-3"></span>{{__('Users')}}</x-button>@endif
     </div>
     <div class="side-section">
-        <label class="side-section-title">{{__('Education Management')}}</label>
+        {{--<label class="side-section-title">{{__('')}}</label>--}}
         {{--@if(request()->routeIs('products.*')) <x-button type="button" class="side-item active"><span class="fa fa-cubes mr-3"></span>{{__('Products Inventory')}}</x-button>
         @else <x-button tag="a" href="{{route('products.index')}}" class="side-item"><span class="fa fa-cubes mr-3"></span>{{__('Products Inventory')}}</x-button>@endif
         @if(request()->routeIs('shopping.*')) <x-button type="button" class="side-item active"><span class="fa fa-cart-arrow-down mr-3"></span>{{__('Shopping')}}</x-button>

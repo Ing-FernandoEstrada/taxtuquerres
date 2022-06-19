@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\Tickets\TicketsList;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +17,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/help', function () {
+    return view('help');
+})->name('help');
+
+Route::get('/tickets', TicketsList::class)->name('tickets.index');
 
 Route::middleware([
     'auth:sanctum',
