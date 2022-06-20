@@ -4,7 +4,7 @@
         <x-sidebar/>
         <div class="flex flex-1 flex-col">
             @livewire('navigation-menu')
-            <div class="h-100 p-4 overflow-y-auto">
+            <div class="bg-white/50 h-100 p-4 overflow-y-auto">
                 {{$slot}}
             </div>
         </div>

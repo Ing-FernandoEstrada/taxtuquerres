@@ -1,7 +1,6 @@
 <nav class="navigation">
     <x-button tag="a" href="{{asset('/')}}" class="navigation-brand">
         <img src="{{asset('/storage/img/logo.png')}}" class="h-16 w-auto" alt="{{config('app.name')}}"/>
-        <label class="hidden sm:block text-2xl italic font-bold text-red-800">{{config('app.name')}}</label>
     </x-button>
     <div class="navigation-items">
         @guest()

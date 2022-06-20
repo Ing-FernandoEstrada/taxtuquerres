@@ -23,7 +23,7 @@
             <input type="text" id="shortname" class="form-input" wire:model.defer="data.shortname" autocomplete="off" required>
             @error('shortname')<label class="feedback-message">{{$message}}</label>@enderror
         </div>
-        <div class="form-group{{$errors->has('birthday')?' has-error':''}}" x-data x-init="flatpickr($refs.birthday,{enableTime:false})">
+        <div class="form-group{{$errors->has('birthday')?' has-error':''}}">
             <label class="form-label" for="birthday">{{__('Birthday')}}</label>
             <input type="text" id="birthday" x-ref="birthday" class="form-input" wire:model.defer="data.birthday" autocomplete="off" required>
             @error('birthday')<label class="feedback-message">{{$message}}</label>@enderror

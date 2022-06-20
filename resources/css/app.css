@@ -8,7 +8,7 @@
     .modal {visibility:hidden;opacity:0;transition:visibility 0s linear 300ms, opacity 300ms;z-index:-1;}
     .modal.show {visibility:visible;opacity:1;transition:visibility 0s linear 0s, opacity 300ms;z-index:20;}
     .we-list li:before{content: '✓' !important;}
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 1023px) {
         .table tbody td::before{content:attr(data-label);float:left;font-weight:bold;text-transform:capitalize;}
         .table tbody td:last-child{border-bottom:0;}
     }
@@ -99,7 +99,7 @@
     .modal-footer {@apply flex flex-wrap flex-shrink-0 items-center justify-end space-x-2 p-3 rounded-b border-t border-gray-300}
     .modal-header {@apply flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-300}
 
-    .pagination{@apply bg-white px-4 py-3 flex flex-col items-center justify-center border-t border-gray-200 sm:px-6}
+    .pagination{@apply bg-white/80 px-4 py-3 flex flex-col items-center justify-center border-t border-gray-200 sm:px-6}
     .pagination-content{@apply hidden sm:flex-1 sm:flex sm:items-center sm:justify-between}
     .pagination-content-sm{@apply flex-1 flex justify-between sm:hidden}
     .pagination-message{@apply text-sm text-gray-700 text-center}
@@ -110,14 +110,13 @@
     .pagination-summary{@apply relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700}
 
     .table{@apply w-full table-fixed md:table-auto border border-transparent md:border-gray-100 my-5 rounded shadow-none md:shadow-lg}
-    .table thead{@apply hidden md:table-header-group}
+    .table thead{@apply hidden lg:table-header-group bg-emerald-800}
     .table thead tr{@apply rounded-l-lg sm:rounded-none mb-2 sm:mb-0}
     .table th,.table td{@apply text-left px-4 py-2 align-middle}
-    .table thead{@apply bg-indigo-500}
     .table thead tr th{@apply font-medium text-white font-semibold}
     .table tbody{@apply bg-white}
-    .table tbody tr{@apply block mb-6 md:table-row md:mb-0 border border-gray-100 md:border-transparent shadow-lg md:shadow-none}
-    .table tbody tr td {@apply block text-right md:text-left md:table-cell border-gray-100 border hover:bg-gray-100}
+    .table tbody tr{@apply block mb-6 lg:table-row lg:mb-0 border border-gray-100 lg:border-transparent shadow-lg lg:shadow-none}
+    .table tbody tr td {@apply block text-right lg:text-left lg:table-cell border-gray-100 border hover:bg-gray-100}
 
     .password-sw-btn {@apply w-4 h-4 inline-flex items-center justify-center rounded-full hover:text-gray-700 hover:bg-gray-100 focus:text-gray-700 focus:bg-gray-200}
 
@@ -125,7 +124,7 @@
     .section-title{@apply text-base md:text-xl font-semibold block text-center}
     .page-title{@apply text-xl font-bold text-center block mb-12}
 
-    .sidebar{@apply absolute lg:relative w-64 inset-y-0 -left-64 lg:left-0 bg-gray-50 ring-2 ring-gray-200 transition-all ease-in-out duration-200}
+    .sidebar{@apply absolute xl:relative w-64 inset-y-0 -left-64 xl:left-0 bg-gray-50 ring-2 ring-gray-200 transition-all ease-in-out duration-200}
     .side-header{@apply p-4 flex flex-col text-center}
     .side-section{@apply border-b-2 border-gray-300 py-4}
     .side-section-title{@apply mx-4 font-semibold mb-2 block text-gray-500}

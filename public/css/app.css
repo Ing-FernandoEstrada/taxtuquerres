@@ -552,7 +552,7 @@ select {
     .btn-close {background:transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e") center/1rem auto no-repeat;}
     .modal {visibility:hidden;opacity:0;transition:visibility 0s linear 300ms, opacity 300ms;z-index:-1;}
     .modal.show {visibility:visible;opacity:1;transition:visibility 0s linear 0s, opacity 300ms;z-index:20;}
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 1023px) {
         .table tbody td::before{content:attr(data-label);float:left;font-weight:bold;text-transform:capitalize;}
         .table tbody td:last-child{border-bottom:0;}
     }
@@ -1331,28 +1331,6 @@ select {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(252 165 165 / var(--tw-ring-opacity));
 }
-.btn-orange {
-  --tw-border-opacity: 1;
-  border-color: rgb(249 115 22 / var(--tw-border-opacity));
-  --tw-bg-opacity: 1;
-  background-color: rgb(249 115 22 / var(--tw-bg-opacity));
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-.btn-orange:hover {
-  --tw-border-opacity: 1;
-  border-color: rgb(234 88 12 / var(--tw-border-opacity));
-  --tw-bg-opacity: 1;
-  background-color: rgb(234 88 12 / var(--tw-bg-opacity));
-}
-.btn-orange:focus {
-  --tw-border-opacity: 1;
-  border-color: rgb(234 88 12 / var(--tw-border-opacity));
-  --tw-bg-opacity: 1;
-  background-color: rgb(234 88 12 / var(--tw-bg-opacity));
-  --tw-ring-opacity: 1;
-  --tw-ring-color: rgb(253 186 116 / var(--tw-ring-opacity));
-}
 .btn-indigo {
   --tw-border-opacity: 1;
   border-color: rgb(99 102 241 / var(--tw-border-opacity));
@@ -1621,8 +1599,7 @@ select {
   border-top-width: 1px;
   --tw-border-opacity: 1;
   border-color: rgb(229 231 235 / var(--tw-border-opacity));
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  background-color: rgb(255 255 255 / 0.8);
   padding-left: 1rem;
   padding-right: 1rem;
   padding-top: 0.75rem;
@@ -1764,8 +1741,10 @@ select {
 }
 .table thead {
   display: none;
+  --tw-bg-opacity: 1;
+  background-color: rgb(6 95 70 / var(--tw-bg-opacity));
 }
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
 
   .table thead {
     display: table-header-group;
@@ -1791,10 +1770,6 @@ select {
   text-align: left;
   vertical-align: middle;
 }
-.table thead {
-  --tw-bg-opacity: 1;
-  background-color: rgb(99 102 241 / var(--tw-bg-opacity));
-}
 .table thead tr th {
   font-weight: 600;
   --tw-text-opacity: 1;
@@ -1814,7 +1789,7 @@ select {
   --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
 
   .table tbody tr {
     margin-bottom: 0px;
@@ -1836,7 +1811,7 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
 
   .table tbody tr td {
     display: table-cell;
@@ -1897,7 +1872,7 @@ select {
   transition-duration: 200ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
-@media (min-width: 1024px) {
+@media (min-width: 1280px) {
 
   .sidebar {
     position: relative;
@@ -2254,6 +2229,9 @@ select {
 .w-24 {
   width: 6rem;
 }
+.w-32 {
+  width: 8rem;
+}
 .min-w-0 {
   min-width: 0px;
 }
@@ -2510,6 +2488,9 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
+.bg-white\/50 {
+  background-color: rgb(255 255 255 / 0.5);
+}
 .bg-opacity-25 {
   --tw-bg-opacity: 0.25;
 }
@@ -2752,10 +2733,6 @@ select {
 .text-green-500 {
   --tw-text-opacity: 1;
   color: rgb(34 197 94 / var(--tw-text-opacity));
-}
-.text-red-800 {
-  --tw-text-opacity: 1;
-  color: rgb(153 27 27 / var(--tw-text-opacity));
 }
 .underline {
   -webkit-text-decoration-line: underline;

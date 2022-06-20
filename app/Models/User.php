@@ -49,7 +49,7 @@ class User extends Authenticatable
         'phone',
         'address',
         'password',
-        'status',
+        'state',
         'person_id',
     ];
 
