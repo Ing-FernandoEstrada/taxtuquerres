@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Actions\Admin\UserManager;
+use App\Contracts\ManagesUsers;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +25,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->app->singleton(ManagesUsers::class,UserManager::class);
     }
 }

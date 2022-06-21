@@ -37,7 +37,7 @@ class Document extends Model
         $array = self::all();
         $html = '<option value="">'.__('Select an option').'</option>';
         foreach ($array as $obj) {
-            $html .= '<option value="'.$obj->id.'">'.$obj->name.'</option>';
+            $html .= '<option value="'.mb_convert_case($obj->code,MB_CASE_UPPER).'">'.$obj->name.'</option>';
         } return $html;
     }
 

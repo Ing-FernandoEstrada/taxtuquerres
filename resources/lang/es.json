@@ -4,6 +4,7 @@
     "A fresh verification link has been sent to your email address.": "Se ha enviado un nuevo enlace de verificación a tu correo electrónico.",
     "About us": "¿Quiénes somos?",
     "All rights reserved.":  "Todos los derechos reservados.",
+    "Already user registered with this identification.": "Usuario ya registrado con esta identificación.",
 
     "Birthday": "Fecha de nacimiento",
     "Before proceeding, please check your email for a verification link.": "Antes de poder continuar, por favor, confirma tu correo electrónico con el enlace que te hemos enviado.",
@@ -15,6 +16,7 @@
     "Contact us": "Contáctanos",
     "Cancel": "Cancelar",
 
+    "Data saved successfully.": "Datos guardados exitosamente.",
     "Document Type": "Tipo de documento",
 
     "Enter your password": "Escribe tu contraseña",
@@ -70,10 +72,11 @@
 
     "Verify Email Address": "Confirmar correo electrónico",
     "Verify Your Email Address": "Confirma tu correo electrónico",
+    "Very Good!": "¡Muy bien!",
 
     "You are receiving this email because we received a password reset request for your account.": "Estás recibiendo este email porque se ha solicitado un cambio de contraseña para tu cuenta.",
 
     "Write something": "Escribe algo",
     "Whoops! Something went wrong.": "Oh, Algo salio mal",
-    "Whoops!": "¡Ups!",
+    "Whoops!": "¡Ups!"
 }

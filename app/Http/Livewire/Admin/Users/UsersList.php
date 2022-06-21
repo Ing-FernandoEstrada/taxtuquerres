@@ -18,6 +18,7 @@ class UsersList extends Component
     public string $direction = 'desc';
     public string $sort = 'u.id';
     public string $rpp = '5';
+    protected $listeners = ['render'];
     protected $queryString = [
         'search' => ['except' => ''],
         'sort' => ['except' => 'u.id'],
@@ -43,14 +44,13 @@ class UsersList extends Component
     public function render(): Factory|View|Application
     {
         $users = User::select('u.*')->from('users as u')
-            ->join('people as p','p.id','=','u.person_id')
             ->join('model_has_roles as mhr','mhr.model_id','=','u.id')
             ->join('roles as r','r.id','=','mhr.role_id')
             ->where('u.email','like',"%$this->search%")
             ->orWhere('u.phone','like',"%$this->search%")
             ->orWhere('r.name','like',"%$this->search%")
-            ->orWhere(DB::raw("concat(p.names,' ',p.surnames)"),'like',"%$this->search%")
-            ->orWhere('p.identification','like',"%$this->search%")
+            ->orWhere(DB::raw("concat(names,' ',surnames)"),'like',"%$this->search%")
+            ->orWhere('identification','like',"%$this->search%")
             ->orderBy($this->sort, $this->direction)
             ->paginate($this->rpp);
         return view('livewire.admin.users.users-list',compact('users'));

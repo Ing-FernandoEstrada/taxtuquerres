@@ -16,7 +16,6 @@
         <script src="{{asset('https://cdn.jsdelivr.net/npm/sweetalert2@11')}}"></script>
         <script>
             Livewire.on('saved',()=>{Swal.fire('{{__('Very Good!')}}','{{__('Data saved successfully.')}}','success')})
-            Livewire.on('imported',message =>{Swal.fire('{{__('Very Good!')}}',message,'success')})
             Livewire.on('deleted',()=>{Swal.fire('{{__('Deleted!')}}','{{__('Selected record has been deleted.')}}','success')})
             Livewire.on('error',()=>{Swal.fire('{{__('Whoops!')}}','{{__('An error has occurred.')}}','error')})
             window.addEventListener('confirmDelete',event => {

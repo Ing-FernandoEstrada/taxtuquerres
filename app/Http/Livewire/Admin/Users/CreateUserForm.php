@@ -3,35 +3,32 @@
 namespace App\Http\Livewire\Admin\Users;
 
 use App\Contracts\ManagesUsers;
+use App\Models\Document;
 use App\Models\User;
-use Illuminate\Validation\ValidationException;
 use Livewire\Component;
 use Spatie\Permission\Models\Role;
 
 class CreateUserForm extends Component
 {
     public bool $open = false;
-    public array $data = [];
+    public array $data = ['document' => 'CC', 'identification' => '', 'names' => '', 'surnames' => '', 'birthday' => '', 'email' => '', 'phone' => '', 'address' => '', 'role' => ''];
     public $user = null;
-    public string $title = '';
-    public string $shortTitle = '';
+    public string $title = 'Create New User';
+    public string $shortTitle = 'Create';
     protected $listeners = ['open','modal.closed' => 'close'];
 
     public function mount():void {
-        $this->data = ['type' => 'CC', 'identification' => '', 'name' => '', 'birthday' => '', 'email' => '', 'phone' => '', 'address' => '', 'role' => '', 'shortname' => ''];
-        $this->title = __('Create New User');
-        $this->shortTitle = __('Create');
         if (!is_null($this->user)) {
             $this->data = $this->user->withoutRelations()->toArray();
-            $this->data['type'] = $this->user->type;
+            $this->data['document'] = $this->user->document;
             $this->data['role'] = $this->user->role->name;
             $this->title = __('Update User Information');
             $this->shortTitle = __('Update');
         }
     }
 
-    public function getTypesProperty(): string {
-        return '<option value="">'.__('Select an option').'</option><option value="CC">'.__('Natural person').'</option><option value="NIT">'.__('Company').'</option>';
+    public function getDocumentsProperty(): string {
+        return Document::optionsHTML();
     }
 
     public function open($uid = null):void {
@@ -59,10 +56,8 @@ class CreateUserForm extends Component
 
     public function save(ManagesUsers $manager):void {
         $user = $manager->save($this->data,$this->user);
-        if(!$user) {
-            ValidationException::withMessages(['error' => __('An error has occurred.')]);
-            $this->emit('error');
-        } else {
+        if(!$user) $this->emit('error');
+        else {
             $this->emitTo('admin.users.users-list','render');
             $this->emit('saved');
         }
