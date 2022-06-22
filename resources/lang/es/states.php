@@ -1,5 +1,5 @@
 <?php
 return [
-    'A' => 'Activo',
-    'I' => 'Inactivo',
+    'A' => ['name' => 'Activo', 'description' => ''],
+    'I' => ['name' => 'Inactivo', 'description' => ''],
 ];

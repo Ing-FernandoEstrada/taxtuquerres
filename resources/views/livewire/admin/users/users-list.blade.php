@@ -35,8 +35,11 @@
                 <td data-label="{{__('E-Mail Address')}}">{{$user->email}}</td>
                 <td data-label="{{__('Phone')}}">{{$user->phone}}</td>
                 <td data-label="{{__('Role')}}">{{__('roles.'.$user->role->name.'.name')}}</td>
-                <td data-label="{{__('State')}}">{{__('states.'.$user->state)}}</td>
-                <td data-label="{{__('Actions')}}"><x-button type="button" class="btn btn-white" data-toggle="modal" data-target="#modalUserForm" wire:click="openForm({{$user->id}})" title="{{__('Edit')}}"><span class="fa fa-edit"></span></x-button></td>
+                <td data-label="{{__('State')}}">{{__('states.'.$user->state.'.name')}}</td>
+                <td data-label="{{__('Actions')}}">
+                    <x-button type="button" class="btn btn-white" data-toggle="modal" data-target="#modalUserForm" wire:click="openForm({{$user->id}})" title="{{__('Edit')}}"><span class="fa fa-edit"></span></x-button>
+                    <x-button tag="a" href="{{route('users.show',compact('user'))}}" class="btn btn-white" title="{{__('Show details')}}"><span class="fa fa-eye"></span></x-button>
+                </td>
             </tr>
         @endforeach
         </tbody>
