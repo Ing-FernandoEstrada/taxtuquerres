@@ -5,9 +5,13 @@
     "About us": "¿Quiénes somos?",
     "All rights reserved.":  "Todos los derechos reservados.",
     "Already user registered with this identification.": "Usuario ya registrado con esta identificación.",
+    "An error has occurred": "Se ha producido un error",
+    "Action": "Acciones",
 
     "Birthday": "Fecha de nacimiento",
     "Before proceeding, please check your email for a verification link.": "Antes de poder continuar, por favor, confirma tu correo electrónico con el enlace que te hemos enviado.",
+    "Buy a ticket": "Comprar un tiquete",
+    "Buy": "Comprar",
 
     "click here to request another": "pulsa aquí para que te enviemos otro",
     "Create New User": "Crear Nuevo Usuario",
@@ -15,19 +19,23 @@
     "Confirm Password": "Confirmar contraseña",
     "Contact us": "Contáctanos",
     "Cancel": "Cancelar",
+    "Create New User": "Crear nuevo usuario",
 
     "Data saved successfully.": "Datos guardados exitosamente.",
     "Document Type": "Tipo de documento",
+    "Delete": "Eliminar",
 
     "Enter your password": "Escribe tu contraseña",
     "E-Mail Address": "Correo electrónico",
     "Edit": "Editar",
+    "Enter your email": "Escribe tu correo",
 
     "Full Name": "Nombre Completo",
     "Forgot Your Password?": "¿Olvidaste tu contraseña?",
 
     "Hello!": "¡Hola!",
     "Help": "Ayuda",
+    "Home": "Principal",
 
     "If you’re having trouble clicking the \":actionText\" button, copy and paste the URL below\ninto your web browser: [:actionURL](:actionURL)": "Si tienes problemas haciendo click en el botón \":actionText\", copia y pega el siguiente\nenlace en tu navegador: [:actionURL](:actionURL)",
     "If you’re having trouble clicking the \":actionText\" button, copy and paste the URL below\ninto your web browser: [:displayableActionUrl](:actionURL)": "Si tienes problemas haciendo click en el botón \":actionText\", copia y pega el siguiente\nenlace en tu navegador: [:displayableActionUrl](:actionURL)",
@@ -43,12 +51,14 @@
     "Name": "Nombre",
     "New user": "Nuevo usuario",
     "No records found!": "No se encontraron registros",
+    "Names": "Nombres",
 
     "Processing...": "Procesando...",
     "Password": "Contraseña",
     "Please confirm your password before continuing.": "Por favor confirme su contraseña antes de continuar.",
     "Please click the button below to verify your email address.": "Por favor pulsa el siguiente botón para confirmar tu correo electrónico.",
     "Phone": "Teléfono",
+    "Photo": "Foto",
 
     "Remember Me": "Recuérdame",
     "Register": "Registro",
@@ -62,20 +72,28 @@
     "Search users": "Buscar usuarios",
     "Select an option": "Selecciona una opción",
     "State": "Estado",
+    "Show list": "Mostrar lista",
+    "Selected record has been deleted": "El registro seleccionado ha sido eliminado",
+    "Sign In": "Iniciar Sesion",
+    "Surnames": "Apellidos",
 
     "Title": "Titulo",
     "This password reset link will expire in :count minutes.": "Este enlace para restablecer la contraseña caduca en :count minutos.",
     "Tickets": "Tiquetes",
+    "Travel History": "Historial de viaje",
 
     "Update User Information": "Actualizar Información de Usuario",
     "Update User State": "Actualizar Estado de Usuario",
     "Users": "Usuarios",
+    "Update User Password": "Actualizar contraseña de usuario",
+    "Update": "Actualizar",
 
     "Verify Email Address": "Confirmar correo electrónico",
     "Verify Your Email Address": "Confirma tu correo electrónico",
     "Very Good!": "¡Muy bien!",
 
     "You are receiving this email because we received a password reset request for your account.": "Estás recibiendo este email porque se ha solicitado un cambio de contraseña para tu cuenta.",
+    "You will delete this record": "Eliminar este registro",
 
     "Write something": "Escribe algo",
     "Whoops! Something went wrong.": "Oh, Algo salio mal",
