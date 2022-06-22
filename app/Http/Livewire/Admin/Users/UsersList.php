@@ -17,7 +17,7 @@ class UsersList extends Component
     public string $search = '';
     public string $direction = 'desc';
     public string $sort = 'u.id';
-    public string $rpp = '5';
+    public string $rpp = '10';
     protected $listeners = ['render'];
     protected $queryString = [
         'search' => ['except' => ''],

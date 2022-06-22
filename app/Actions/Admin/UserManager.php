@@ -31,6 +31,7 @@ class UserManager implements ManagesUsers
         }
         return $user;
     }
+
     function updateState(User $user, string $state): bool
     {
         return $user->update(["state"=>$state]);

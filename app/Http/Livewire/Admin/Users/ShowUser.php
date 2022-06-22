@@ -8,6 +8,7 @@ use Livewire\Component;
 class ShowUser extends Component
 {
     public User $user;
+    protected $listeners = ['render'];
 
     public function openUserStateForm() {
         $this->emitTo('admin.users.update-user-state-form','open');
