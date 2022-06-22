@@ -20,23 +20,28 @@
 
         <x-card class="bg-white">
             <img src="{{asset('/storage/img/user-state.png')}}" class="w-12 h-12" alt="{{__('')}}">
+
             <label class="card-title">{{__('Update User State')}}</label>
             <p class="text-sm italic">{{__('')}}</p>
+            <x-button type="button" class="btn btn-red">{{__('Update')}}</x-button>
         </x-card>
         <x-card class="bg-white">
             <img src="{{asset('/storage/img/update-password.png')}}" class="w-12 h-12" alt="{{__('')}}">
             <label class="card-title">{{__('Update User Password')}}</label>
             <p class="text-sm italic">{{__('')}}</p>
+            <x-button type="button" class="btn btn-red">{{__('Update')}}</x-button>
         </x-card>
         <x-card class="bg-white">
             <img src="{{asset('/storage/img/buy-ticket.png')}}" class="w-12 h-12" alt="{{__('')}}">
             <label class="card-title">{{__('Buy a ticket')}}</label>
             <p class="text-sm italic">{{__('')}}</p>
+            <x-button type="button" class="btn btn-red">{{__('Buy')}}</x-button>
         </x-card>
         <x-card class="bg-white">
             <img src="{{asset('/storage/img/travel-history.png')}}" class="w-12 h-12" alt="{{__('')}}">
             <label class="card-title">{{__('Travel History')}}</label>
             <p class="text-sm italic">{{__('')}}</p>
+            <x-button type="button" class="btn btn-red">{{__('Show list')}}</x-button>
         </x-card>
     </div>
 
