@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('phone');
             $table->string('address');
             $table->string('password');
-            $table->string('status',1);
+            $table->string('state',1);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
             $table->rememberToken();

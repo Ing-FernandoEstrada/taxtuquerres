@@ -31,6 +31,8 @@ use Spatie\Permission\Traits\HasRoles;
  */
 class User extends Authenticatable
 {
+    /*public static string $STATEACTIVE="A";
+    public static string $STATEINACTIVE="I";*/
     use HasRoles;
     use HasApiTokens;
     use HasFactory;

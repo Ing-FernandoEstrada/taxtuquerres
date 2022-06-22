@@ -7,4 +7,5 @@ use App\Models\User;
 interface ManagesUsers
 {
     function save(array $data, ?User $user = null): User|null;
+    function updateState(User $user,string $state):bool;
 }

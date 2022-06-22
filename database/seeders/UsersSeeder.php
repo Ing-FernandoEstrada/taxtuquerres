@@ -32,7 +32,19 @@ class UsersSeeder extends Seeder
             'phone' => '3135053624',
             'address' => 'Pasto, Nariño',
             'password' => Hash::make('utilizar'),
-            'status' => 'A',
+            'state' => 'A',
+        ])->assignRole($admin);
+
+        $user = User::create([
+            'identification' => 'CC1143875162',
+            'names' => 'Santiago',
+            'surnames' => 'Ortega Rodriguez',
+            'birthday' => '1998-08-02',
+            'email' => 'santiortega@umariana.edu.co',
+            'phone' => '3177172878',
+            'address' => 'Pasto, Nariño',
+            'password' => Hash::make('harascommitmateo'),
+            'state' => 'A',
         ])->assignRole($admin);
     }
 }

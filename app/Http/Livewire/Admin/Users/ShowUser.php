@@ -9,6 +9,9 @@ class ShowUser extends Component
 {
     public User $user;
 
+    public function openUserStateForm() {
+        $this->emitTo('admin.users.update-user-state-form','open');
+    }
 
     public function render()
     {

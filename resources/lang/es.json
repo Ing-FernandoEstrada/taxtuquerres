@@ -1,4 +1,5 @@
 {
+
     "Address": "Dirección",
     "Administrative Management": "Gestión Administrativa",
     "A fresh verification link has been sent to your email address.": "Se ha enviado un nuevo enlace de verificación a tu correo electrónico.",
@@ -6,8 +7,9 @@
     "All rights reserved.":  "Todos los derechos reservados.",
     "Already user registered with this identification.": "Usuario ya registrado con esta identificación.",
     "An error has occurred": "Se ha producido un error",
-    "Action": "Acciones",
+    "Actions": "Acciones",
 
+    "Back to users list": "Volver a la lista de Usuarios",
     "Birthday": "Fecha de nacimiento",
     "Before proceeding, please check your email for a verification link.": "Antes de poder continuar, por favor, confirma tu correo electrónico con el enlace que te hemos enviado.",
     "Buy a ticket": "Comprar un tiquete",
@@ -19,7 +21,7 @@
     "Confirm Password": "Confirmar contraseña",
     "Contact us": "Contáctanos",
     "Cancel": "Cancelar",
-    "Create New User": "Crear nuevo usuario",
+
 
     "Data saved successfully.": "Datos guardados exitosamente.",
     "Document Type": "Tipo de documento",
@@ -76,6 +78,7 @@
     "Selected record has been deleted": "El registro seleccionado ha sido eliminado",
     "Sign In": "Iniciar Sesion",
     "Surnames": "Apellidos",
+
 
     "Title": "Titulo",
     "This password reset link will expire in :count minutes.": "Este enlace para restablecer la contraseña caduca en :count minutos.",

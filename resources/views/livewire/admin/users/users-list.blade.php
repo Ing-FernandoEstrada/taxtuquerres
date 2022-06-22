@@ -16,7 +16,7 @@
     <table class="table">
         <thead>
         <tr>
-            <th>{{__('Photo')}}</th>
+            <th class="lg:w-32">{{__('Photo')}}</th>
             <th wire:click="sort('p.identification')" class="cursor-pointer">{{__('Identification')}}<span class="mt-1 float-right fa fa-sort{{$sort=='p.identification'?'-alpha-'.$direction:''}}"></span></th>
             <th wire:click="sort('names')" class="cursor-pointer">{{__('Full Name')}}<span class="mt-1 float-right fa fa-sort{{$sort=='names'?'-alpha-'.$direction:''}}"></span></th>
             <th wire:click="sort('email')" class="cursor-pointer">{{__('E-Mail Address')}}<span class="mt-1 float-right fa fa-sort{{$sort=='email'?'-alpha-'.$direction:''}}"></span></th>
@@ -29,7 +29,7 @@
         <tbody>
         @foreach($users as $user)
             <tr>
-                <td><img src="{{$user->profile_photo_url}}" class="w-24 h-24 rounded-full mx-auto" alt="{{$user->fullname}}"></td>
+                <td class="lg:w-32"><img src="{{$user->profile_photo_url}}" class="w-24 h-24 rounded-full mx-auto" alt="{{$user->fullname}}"></td>
                 <td data-label="{{__('Identification')}}">{{$user->document.' - '.$user->identification}}</td>
                 <td data-label="{{__('Full Name')}}">{{$user->fullname}}</td>
                 <td data-label="{{__('E-Mail Address')}}">{{$user->email}}</td>
