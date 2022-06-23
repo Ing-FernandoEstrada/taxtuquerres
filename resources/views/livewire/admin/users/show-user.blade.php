@@ -28,7 +28,7 @@
             <img src="{{asset('/storage/img/update-password.png')}}" class="w-12 h-12 mx-auto" alt="{{__('Update User Password')}}">
             <label class="card-title">{{__('Update User Password')}}</label>
             <p class="text-sm italic">{{__('')}}</p>
-            <x-button type="button" class="btn btn-red">{{__('Update')}}</x-button>
+            <x-button type="button" wire:click="openUpdatePasswordForm" data-toggle="modal" data-target="#updatePasswordForm" class="btn btn-red">{{__('Update')}}</x-button>
         </x-card>
         <x-card class="bg-white">
             <img src="{{asset('/storage/img/buy-ticket.png')}}" class="w-12 h-12 mx-auto" alt="{{__('Buy a ticket')}}">
@@ -47,4 +47,6 @@
     @livewire('admin.users.update-user-state-form',compact("user"))
     @section("script")<script src="{{mix("/js/modals.js")}}"></script>@endsection
     @endif
+
+    @livewire('admin.users.update-password-form',compact("user"))
 </div>

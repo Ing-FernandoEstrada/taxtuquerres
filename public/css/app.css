@@ -2127,11 +2127,11 @@ select {
 .-mt-px {
   margin-top: -1px;
 }
-.-ml-7 {
-  margin-left: -1.75rem;
-}
 .mr-1 {
   margin-right: 0.25rem;
+}
+.-ml-7 {
+  margin-left: -1.75rem;
 }
 .block {
   display: block;
