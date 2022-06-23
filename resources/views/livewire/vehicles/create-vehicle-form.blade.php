@@ -1,4 +1,4 @@
-<x-modal id="modalUserForm" class="{{$open?'show':'hidden'}}">
+<x-card class="flex flex-col ">
     <x-slot name="header"><label class="modal-title">{{$title}}</label></x-slot>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-x-4">
         <div class="form-group{{$errors->has('number')?' has-error':''}}">
@@ -37,4 +37,4 @@
         <x-button type="button" class="btn btn-white" data-dismiss="modal" wire:loading.remove wire:target="save">{{__('Cancel')}}</x-button>
         <x-button type="button" class="btn btn-indigo" wire:loading.remove wire:target="save" wire:click.prevent="save">{{$shortTitle}}</x-button>
     </x-slot>
-</x-modal>
+</x-card>
