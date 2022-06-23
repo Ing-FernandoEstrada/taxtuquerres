@@ -10,22 +10,24 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Category
+ * Class Brand
  * 
  * @property int $id
  * @property string $name
+ * @property string|null $image
  * 
  * @property Collection|Vehicle[] $vehicles
  *
  * @package App\Models
  */
-class Category extends Model
+class Brand extends Model
 {
-	protected $table = 'categories';
+	protected $table = 'brands';
 	public $timestamps = false;
 
 	protected $fillable = [
-		'name'
+		'name',
+		'image'
 	];
 
 	public function vehicles()

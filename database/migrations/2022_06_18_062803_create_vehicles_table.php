@@ -16,11 +16,11 @@ return new class extends Migration
         Schema::create('vehicles', function (Blueprint $table) {
             $table->id();
             $table->string('number');
-            $table->string('brand');
             $table->string('model');
             $table->string('plate');
             $table->string('quota');
             $table->foreignId('category_id')->references('id')->on('categories')->cascadeOnUpdate()->restrictOnDelete();
+            $table->foreignId('brand_id')->references('id')->on('brands')->cascadeOnUpdate()->restrictOnDelete();
         });
     }
 
