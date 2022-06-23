@@ -1853,6 +1853,20 @@ select {
     padding: 2rem;
   }
 }
+.section-title {
+  display: block;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 600;
+}
+@media (min-width: 768px) {
+
+  .section-title {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+}
 .page-title {
   margin-bottom: 3rem;
   display: block;
@@ -2055,6 +2069,10 @@ select {
   margin-left: auto;
   margin-right: auto;
 }
+.my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
 .ml-3 {
   margin-left: 0.75rem;
 }
@@ -2124,14 +2142,14 @@ select {
 .mb-4 {
   margin-bottom: 1rem;
 }
-.-mt-px {
-  margin-top: -1px;
+.-ml-7 {
+  margin-left: -1.75rem;
 }
 .mr-1 {
   margin-right: 0.25rem;
 }
-.-ml-7 {
-  margin-left: -1.75rem;
+.-mt-px {
+  margin-top: -1px;
 }
 .block {
   display: block;
@@ -2181,14 +2199,17 @@ select {
 .h-20 {
   height: 5rem;
 }
+.h-screen {
+  height: 100vh;
+}
 .h-24 {
   height: 6rem;
 }
 .h-36 {
   height: 9rem;
 }
-.h-screen {
-  height: 100vh;
+.h-52 {
+  height: 13rem;
 }
 .max-h-16 {
   max-height: 4rem;
@@ -2249,6 +2270,9 @@ select {
 }
 .w-36 {
   width: 9rem;
+}
+.w-52 {
+  width: 13rem;
 }
 .min-w-0 {
   min-width: 0px;
@@ -2641,11 +2665,11 @@ select {
 .pb-1 {
   padding-bottom: 0.25rem;
 }
-.pt-8 {
-  padding-top: 2rem;
-}
 .pr-8 {
   padding-right: 2rem;
+}
+.pt-8 {
+  padding-top: 2rem;
 }
 .text-left {
   text-align: left;
@@ -3313,6 +3337,16 @@ select {
   .lg\:px-8 {
     padding-left: 2rem;
     padding-right: 2rem;
+  }
+}
+@media (min-width: 1280px) {
+
+  .xl\:col-span-4 {
+    grid-column: span 4 / span 4;
+  }
+
+  .xl\:col-span-8 {
+    grid-column: span 8 / span 8;
   }
 }
 

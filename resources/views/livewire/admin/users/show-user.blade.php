@@ -43,10 +43,7 @@
             <x-button type="button" class="btn btn-red">{{__('Show list')}}</x-button>
         </x-card>
     </div>
-    @if(Auth::user()->id!==$user->id)
-    @livewire('admin.users.update-user-state-form',compact("user"))
-    @section("script")<script src="{{mix("/js/modals.js")}}"></script>@endsection
-    @endif
-
+    @if(Auth::user()->id!==$user->id)@livewire('admin.users.update-user-state-form',compact("user"))@endif
     @livewire('admin.users.update-password-form',compact("user"))
+    @section("script")<script src="{{mix("/js/modals.js")}}"></script>@endsection
 </div>

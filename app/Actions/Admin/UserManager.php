@@ -5,6 +5,7 @@ namespace App\Actions\Admin;
 use App\Contracts\ManagesUsers;
 use App\Models\Document;
 use App\Models\User;
+use App\Rules\NewPasswordRule;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
@@ -37,6 +38,12 @@ class UserManager implements ManagesUsers
         return $user->update(["state"=>$state]);
     }
 
+    function updatePassword(array $data, User $user): bool
+    {
+        Validator::make($data,['password' => ['required',new NewPasswordRule(),'confirmed']])->validate();
+        return $user->update(["password" => Hash::make($data['password'])]);
+    }
+
     private function rules(): array {
         return [
             'document' => ['required','string',Rule::in(Document::array('code'))],
@@ -48,5 +55,9 @@ class UserManager implements ManagesUsers
             'phone' => ['required','phone:AUTO,CO'],
             'address' => ['nullable', 'string', 'max:255'],
         ];
+    }
+
+    private function passwordRules() {
+        return ;
     }
 }

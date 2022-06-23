@@ -1,95 +1,16 @@
-<x-jet-form-section submit="updateProfileInformation">
-    <x-slot name="title">
-        {{ __('Profile Information') }}
-    </x-slot>
-
-    <x-slot name="description">
-        {{ __('Update your account\'s profile information and email address.') }}
-    </x-slot>
-
-    <x-slot name="form">
-        <!-- Profile Photo -->
+<x-card class="w-full" submit="updateProfileInformation">
+    <div class="flex flex-col items-center space-x-4">
         @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-            <div x-data="{photoName: null, photoPreview: null}" class="col-span-6 sm:col-span-4">
-                <!-- Profile Photo File Input -->
-                <input type="file" class="hidden"
-                            wire:model="photo"
-                            x-ref="photo"
-                            x-on:change="
-                                    photoName = $refs.photo.files[0].name;
-                                    const reader = new FileReader();
-                                    reader.onload = (e) => {
-                                        photoPreview = e.target.result;
-                                    };
-                                    reader.readAsDataURL($refs.photo.files[0]);
-                            " />
-
-                <x-jet-label for="photo" value="{{ __('Photo') }}" />
-
-                <!-- Current Profile Photo -->
-                <div class="mt-2" x-show="! photoPreview">
-                    <img src="{{ $this->user->profile_photo_url }}" alt="{{ $this->user->name }}" class="rounded-full h-20 w-20 object-cover">
-                </div>
-
-                <!-- New Profile Photo Preview -->
-                <div class="mt-2" x-show="photoPreview" style="display: none;">
-                    <span class="block rounded-full w-20 h-20 bg-cover bg-no-repeat bg-center"
-                          x-bind:style="'background-image: url(\'' + photoPreview + '\');'">
-                    </span>
-                </div>
-
-                <x-jet-secondary-button class="mt-2 mr-2" type="button" x-on:click.prevent="$refs.photo.click()">
-                    {{ __('Select A New Photo') }}
-                </x-jet-secondary-button>
-
-                @if ($this->user->profile_photo_path)
-                    <x-jet-secondary-button type="button" class="mt-2" wire:click="deleteProfilePhoto">
-                        {{ __('Remove Photo') }}
-                    </x-jet-secondary-button>
-                @endif
-
-                <x-jet-input-error for="photo" class="mt-2" />
-            </div>
+        <img :src="photoUrl" alt="{{$user->name}}" class="rounded-full w-52 h-52">
+        <button type="button" class="btn btn-white my-2" @click="$refs.file.click()"><span class="fa fa-camera mr-3"></span>{{__('Select a photo')}}</button>
+        <input class="hidden" type="file" x-ref="file" wire:model.defer="file" accept="image/*">
         @endif
-
-        <!-- Name -->
-        <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="name" value="{{ __('Name') }}" />
-            <x-jet-input id="name" type="text" class="mt-1 block w-full" wire:model.defer="state.name" autocomplete="name" />
-            <x-jet-input-error for="name" class="mt-2" />
+        <x-alert icon="spain fa-spinner" class="alert-blue" message="{{__('Loading...')}}" wire:loading.inline-flex="wire:loading.inline-flex" wire:target="file"/>
+        <div class="flex flex-col items-center mt-6">
+            <p class="font-bold text-2xl italic">{{$user->fullname}}</p>
+            <p class="font-semibold text-lg italic">{{$user->email}}</p>
+            <p class="font-bold text-lg italic">{{__('roles.'.$user->role->name.'.name')}}</p>
         </div>
-
-        <!-- Email -->
-        <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="email" value="{{ __('Email') }}" />
-            <x-jet-input id="email" type="email" class="mt-1 block w-full" wire:model.defer="state.email" />
-            <x-jet-input-error for="email" class="mt-2" />
-
-            @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::emailVerification()) && ! $this->user->hasVerifiedEmail())
-                <p class="text-sm mt-2">
-                    {{ __('Your email address is unverified.') }}
-
-                    <button type="button" class="underline text-sm text-gray-600 hover:text-gray-900" wire:click.prevent="sendEmailVerification">
-                        {{ __('Click here to re-send the verification email.') }}
-                    </button>
-                </p>
-
-                @if ($this->verificationLinkSent)
-                    <p v-show="verificationLinkSent" class="mt-2 font-medium text-sm text-green-600">
-                        {{ __('A new verification link has been sent to your email address.') }}
-                    </p>
-                @endif
-            @endif
-        </div>
-    </x-slot>
-
-    <x-slot name="actions">
-        <x-jet-action-message class="mr-3" on="saved">
-            {{ __('Saved.') }}
-        </x-jet-action-message>
-
-        <x-jet-button wire:loading.attr="disabled" wire:target="photo">
-            {{ __('Save') }}
-        </x-jet-button>
-    </x-slot>
-</x-jet-form-section>
+        <button type="button" class="btn btn-outline-indigo" wire:click="$emitTo('profile.update-profile-information-form','open')">{{__('Update Information')}}</button>
+    </div>
+</x-card>
