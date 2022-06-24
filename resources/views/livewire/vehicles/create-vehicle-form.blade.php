@@ -44,7 +44,7 @@
         </div>
         <x-slot name="footer">
             <x-alert icon="spinner fa-spin" class="alert-solid alert-blue" message="{{__('Processing...')}}" wire:loading.inline-flex wire:target="save"/>
-            <x-button type="button" class="btn btn-white" data-dismiss="modal" wire:loading.remove wire:target="save">{{__('Cancel')}}</x-button>
+            <x-button type="button" class="btn btn-white" onclick="window.history.back()" wire:loading.remove wire:target="save">{{__('Cancel')}}</x-button>
             <x-button type="button" class="btn btn-indigo" wire:loading.remove wire:target="save" wire:click.prevent="save">{{$shortTitle}}</x-button>
         </x-slot>
     </x-card>
