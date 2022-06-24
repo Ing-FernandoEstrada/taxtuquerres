@@ -5,7 +5,7 @@
             <div class="p-4 flex justify-center items-center xl:col-span-4">
                 <img :src="imageUrl" class="rounded-full w-36 h-36" alt="{{$vehicle->number}}">
                 <x-button type="button" class="btn btn-white" @click="$refs.file.click()"><span class="fa fa-camera mr-2"></span>{{__('Select a photo')}}</x-button>
-                <input type="file" x-ref="file" class="hidden" wire:model.defer="data.image" accept="image/*" @change="const reader = new FileReader();reader.onloadend = (event) => {imageUrl = event.target.result};reader.readAsDataURL($refs.file.files[0]);">
+                <input type="file" x-ref="file" class="hidden" wire:model="image" accept="image/*" @change="const reader = new FileReader();reader.onloadend = (event) => {imageUrl = event.target.result};reader.readAsDataURL($refs.file.files[0]);">
             </div>
             <div class="flex flex-col space-y-4 justify-center items-center xl:col-span-8">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-x-4">
@@ -48,4 +48,12 @@
             <x-button type="button" class="btn btn-indigo" wire:loading.remove wire:target="save" wire:click.prevent="save">{{$shortTitle}}</x-button>
         </x-slot>
     </x-card>
+    @section('script')
+    <script>
+        Livewire.on('success-vehicle',()=>{
+            Swal.fire('{{__('Very Good!')}}','{{__('Data saved successfully.')}}','success');
+            setTimeout(() => {window.history.back()},3000);
+        });
+    </script>
+    @endsection
 </div>

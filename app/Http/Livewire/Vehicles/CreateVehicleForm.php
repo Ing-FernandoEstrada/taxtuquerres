@@ -17,7 +17,7 @@ class CreateVehicleForm extends Component
     public string $title = 'Create New User';
     public string $shortTitle = 'Create';
     protected $listeners = ['open','modal.closed' => 'close'];
-    public ?UploadedFile $image;
+    public $image = null;
 
     public function mount(?Vehicle $vehicle):void {
         $this->vehicle = $vehicle;
@@ -27,6 +27,8 @@ class CreateVehicleForm extends Component
             unset($this->data['category_id']);
             $this->data['category'] = $vehicle->category_id;
             $this->data['brand'] = $vehicle->brand_id;
+            $this->title = 'Update vehicle information';
+            $this->shortTitle = 'Update';
         } else $this->vehicle = new Vehicle();
         $this->title = __($this->title);
         $this->shortTitle = __($this->shortTitle);
@@ -46,24 +48,16 @@ class CreateVehicleForm extends Component
         if (!$this->open) $this->close();
     }
 
-    public function close() {
-        $this->reset();
-    }
-
     public function getCategoriesProperty():string {
         return Category::optionsHTML();
     }
 
     public function save(ManagesVehicles $manager):void {
-        if ($this->image) $this->vehicle->updateImage($this->image);
-        $vehicle = $manager->save($this->data,$this->vehicle);
+        $vehicle = $manager->save($this->data,$this->image, $this->vehicle);
         if(!$vehicle) $this->emit('error');
-        else {
-            $this->emitTo('admin.vehicles.vehicles-list','render');
-            $this->emit('saved');
-        }
-        $this->close();
+        else $this->emit('success-vehicle');
     }
+
     public function render()
     {
         return view('livewire.vehicles.create-vehicle-form');
