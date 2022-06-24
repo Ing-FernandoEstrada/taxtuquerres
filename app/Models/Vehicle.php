@@ -6,7 +6,9 @@
 
 namespace App\Models;
 
+use App\Traits\HasImage;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * Class Vehicle
@@ -16,9 +18,9 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $model
  * @property string $plate
  * @property string $quota
+ * @property string $image_url
  * @property int $category_id
  * @property int $brand_id
- *
  *
  * @property Category $category
  * @property Brand $brand
@@ -27,31 +29,35 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Vehicle extends Model
 {
+    use HasImage;
+
 	protected $table = 'vehicles';
 	public $timestamps = false;
 
 	protected $casts = [
 		'category_id' => 'int',
         'brand_id' => 'int'
-
 	];
+
+    protected $appends = [
+        'image_url'
+    ];
 
 	protected $fillable = [
 		'number',
-		'brand_id',
 		'model',
 		'plate',
 		'quota',
-		'category_id'
+		'category_id',
+        'brand_id',
 	];
 
-
-    public function category()
+    public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
     }
 
-    public function brand()
+    public function brand(): BelongsTo
     {
         return $this->belongsTo(Brand::class);
     }

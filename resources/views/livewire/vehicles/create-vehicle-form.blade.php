@@ -1,4 +1,4 @@
-<<div class="w-full" x-data="{imageUrl: '{{$vehicle->image_url}}'}">
+<div class="w-full" x-data="{imageUrl: '{{$vehicle->image_url}}'}">
     <x-button type="button" class="btn btn-white" @click="window.history.back()">{{__("Back to vehicles list")}}</x-button>
     <x-card class="bg-white mx-auto">
         <div class="grid grid-cols-1 xl:grid-col-12 gap-4">
@@ -10,12 +10,12 @@
             <div class="flex flex-col space-y-4 justify-center items-center xl:col-span-8">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-x-4">
                     <div class="form-group{{$errors->has('category')?' has-error':''}}">
-                        <label class="form-label" for="category">{{__('Brand')}}</label>
+                        <label class="form-label" for="category">{{__('Category')}}</label>
                         <select id="category" class="form-select" wire:model.defer="data.category" required>{!! $this->categories !!}</select>
                         @error('category')<label class="feedback-message">{{$message}}</label>@enderror
                     </div>
                     <div class="form-group{{$errors->has('brand')?' has-error':''}}">
-                        <label class="form-label" for="brand">{{__('Category')}}</label>
+                        <label class="form-label" for="brand">{{__('Brand')}}</label>
                         <select id="brand" class="form-select" wire:model.defer="data.brand" required>{!! $this->brands !!}</select>
                         @error('brand')<label class="feedback-message">{{$message}}</label>@enderror
                     </div>

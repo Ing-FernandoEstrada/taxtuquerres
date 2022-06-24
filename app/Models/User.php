@@ -26,7 +26,7 @@ use Spatie\Permission\Traits\HasRoles;
  * @property string $password
  * @property string $state
  * @property Carbon $email_verified_at
- * @property $profile_photo_url
+ * @property string $profile_photo_url
  *
  */
 class User extends Authenticatable

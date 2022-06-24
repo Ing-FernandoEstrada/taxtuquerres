@@ -2,39 +2,44 @@
 
 namespace App\Http\Livewire\Vehicles;
 
-use App\Contracts\ManagesUsers;
-use App\Models\Document;
-use App\Models\User;
-use Livewire\Component;
-use Spatie\Permission\Models\Role;
+use App\Contracts\ManagesVehicles;
+use App\Models\{Brand,Category,Vehicle};
+use Livewire\{Component, WithFileUploads};
+use Illuminate\Http\UploadedFile;
 
 class CreateVehicleForm extends Component
 {
+    use WithFileUploads;
+
     public bool $open = false;
-    public array $data = ['document' => 'CC', 'identification' => '', 'names' => '', 'surnames' => '', 'birthday' => '', 'email' => '', 'phone' => '', 'address' => '', 'role' => ''];
-    public $vehicle = null;
+    public array $data = ['number' => '', 'model' => '', 'plate' => '', 'quota' => '', 'category_id' => '', 'brand_id' => ''];
+    public ?Vehicle $vehicle = null;
     public string $title = 'Create New User';
     public string $shortTitle = 'Create';
     protected $listeners = ['open','modal.closed' => 'close'];
+    public ?UploadedFile $image;
 
-    public function mount():void {
+    public function mount(?Vehicle $vehicle):void {
+        $this->vehicle = $vehicle;
         if (!is_null($this->vehicle)) {
-            $this->data = $this->vehicle->withoutRelations()->toArray();
-            $this->data['document'] = $this->vehicle->document;
-            $this->data['role'] = $this->vehicle->role->name;
-            $this->title = __('Update User Information');
-            $this->shortTitle = __('Update');
-        }
+            $this->data = $vehicle->withoutRelations()->toArray();
+            unset($this->data['brand_id']);
+            unset($this->data['category_id']);
+            $this->data['category'] = $vehicle->category_id;
+            $this->data['brand'] = $vehicle->brand_id;
+        } else $this->vehicle = new Vehicle();
+        $this->title = __($this->title);
+        $this->shortTitle = __($this->shortTitle);
     }
 
-    public function getDocumentsProperty(): string {
-        return Document::optionsHTML();
+    public function getBrandsProperty(): string {
+        return Brand::optionsHTML();
     }
 
-    public function open($uid = null):void {
-        if(is_numeric($uid)) $this->vehicle = User::find($uid);
+    public function open($vehicle = null):void {
+        if(is_numeric($vehicle)) $vehicle = Vehicle::find($vehicle);
         $this->open = true;
-        $this->mount();
+        $this->mount($vehicle);
     }
 
     public function updatedOpen():void {
@@ -45,16 +50,12 @@ class CreateVehicleForm extends Component
         $this->reset();
     }
 
-    public function getRolesProperty():string {
-        $roles = Role::all();
-        $html = '<option value="">'.__('Select an option').'</option>';
-        foreach ($roles as $role) {
-            $html .= '<option value="'.$role->name.'">'.__('roles.'.$role->name.'.name').'</option>';
-        }
-        return $html;
+    public function getCategoriesProperty():string {
+        return Category::optionsHTML();
     }
 
-    public function save(ManagesUsers $manager):void {
+    public function save(ManagesVehicles $manager):void {
+        if ($this->image) $this->vehicle->updateImage($this->image);
         $vehicle = $manager->save($this->data,$this->vehicle);
         if(!$vehicle) $this->emit('error');
         else {

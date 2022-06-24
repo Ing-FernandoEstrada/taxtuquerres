@@ -36,11 +36,6 @@ class VehiclesList extends Component
         } else $this->sort = $sort;
     }
 
-    public function openForm(?int $uid = null) {
-        if (is_numeric($uid)) $this->emitTo('vehicles.vehicles-list','open',$uid);
-        else $this->emitTo('vehicles.vehicles-list','open');
-    }
-
     public function render(): Factory|View|Application
     {
             $vehicles = Vehicle::select("v.*")->from("vehicles as v")

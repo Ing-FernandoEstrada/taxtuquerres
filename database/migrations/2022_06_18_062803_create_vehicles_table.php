@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('model');
             $table->string('plate');
             $table->string('quota');
+            $table->string('image_path', 2048)->nullable();
             $table->foreignId('category_id')->references('id')->on('categories')->cascadeOnUpdate()->restrictOnDelete();
             $table->foreignId('brand_id')->references('id')->on('brands')->cascadeOnUpdate()->restrictOnDelete();
         });

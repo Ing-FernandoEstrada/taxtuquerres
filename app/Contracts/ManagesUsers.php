@@ -8,4 +8,5 @@ interface ManagesUsers
 {
     function save(array $data, ?User $user = null): User|null;
     function updateState(User $user,string $state):bool;
+    function updatePassword(array $data, User $user):bool;
 }
