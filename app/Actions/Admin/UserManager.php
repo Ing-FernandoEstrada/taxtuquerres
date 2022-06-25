@@ -24,11 +24,13 @@ class UserManager implements ManagesUsers
                 if($count>0) throw ValidationException::withMessages(['identification' => __('Already user registered with this identification.')]);
             }
             $user->update($data);
+            $user->syncRoles($data['roles']);
         } else {
             $password = Hash::make($data['document'].$data['identification']);
             $data['state'] = 'A';
             $data['password'] = $password;
             $user = User::create($data);
+            $user->assignRole($data['role']);
         }
         return $user;
     }
