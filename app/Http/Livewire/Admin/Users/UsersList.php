@@ -41,7 +41,7 @@ class UsersList extends Component
         else $this->emitTo('admin.users.create-user-form','open');
     }
 
-    public function render(): Factory|View|Application
+    public function render()
     {
         $users = User::select('u.*')->from('users as u')
             ->join('model_has_roles as mhr','mhr.model_id','=','u.id')
@@ -51,8 +51,9 @@ class UsersList extends Component
             ->orWhere('r.name','like',"%$this->search%")
             ->orWhere(DB::raw("concat(names,' ',surnames)"),'like',"%$this->search%")
             ->orWhere('identification','like',"%$this->search%")
-            ->orderBy($this->sort, $this->direction)
-            ->paginate($this->rpp);
+            ->orderBy($this->sort, $this->direction)->get();
+            var_dump($users);die();
+            //->paginate($this->rpp);
         return view('livewire.admin.users.users-list',compact('users'));
     }
 }
