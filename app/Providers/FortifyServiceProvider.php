@@ -6,6 +6,7 @@ use App\Actions\Fortify\CreateNewUser;
 use App\Actions\Fortify\ResetUserPassword;
 use App\Actions\Fortify\UpdateUserPassword;
 use App\Actions\Fortify\UpdateUserProfileInformation;
+use App\Models\Document;
 use App\Models\User;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
@@ -36,12 +37,14 @@ class FortifyServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Fortify::authenticateUsing(function (LoginRequest $request) {
-            $user = User::where('email',$request->email)->first();
+            $identification = $request->document.$request->identification;
+            $user = User::where('identification',$identification)->first();
             if ($user) {
                 if (!Hash::check($request->password,$user->password)) throw ValidationException::withMessages(['password' => __('auth.password')]);
                 return $user;
-            } else throw ValidationException::withMessages([Fortify::username() => __('auth.failed')]);
+            } else throw ValidationException::withMessages(['identification' => __('auth.failed')]);
         });
+        Fortify::loginView(function () {return view('auth.login',['documents' => Document::optionsHTML()]);});
         Fortify::createUsersUsing(CreateNewUser::class);
         Fortify::updateUserProfileInformationUsing(UpdateUserProfileInformation::class);
         Fortify::updateUserPasswordsUsing(UpdateUserPassword::class);

@@ -3,9 +3,6 @@
 namespace App\Http\Livewire\Admin\Users;
 
 use App\Models\User;
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Contracts\View\Factory;
-use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -51,9 +48,8 @@ class UsersList extends Component
             ->orWhere('r.name','like',"%$this->search%")
             ->orWhere(DB::raw("concat(names,' ',surnames)"),'like',"%$this->search%")
             ->orWhere('identification','like',"%$this->search%")
-            ->orderBy($this->sort, $this->direction)->get();
-            var_dump($users);die();
-            //->paginate($this->rpp);
+            ->orderBy($this->sort, $this->direction)
+            ->paginate($this->rpp);
         return view('livewire.admin.users.users-list',compact('users'));
     }
 }

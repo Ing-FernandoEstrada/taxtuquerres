@@ -2,10 +2,12 @@
 
 namespace App\View\Components;
 
+use App\Models\Document;
 use Illuminate\View\Component;
 
 class Login extends Component
 {
+    public string $documents;
     /**
      * Create a new component instance.
      *
@@ -13,7 +15,7 @@ class Login extends Component
      */
     public function __construct()
     {
-        //
+        $this->documents = Document::optionsHTML();
     }
 
     /**

@@ -17,7 +17,6 @@
     "Back to vehicles list": "Regresar a la lista de vehiculos",
 
     "click here to request another": "pulsa aquí para que te enviemos otro",
-    "Create New User": "Crear Nuevo Usuario",
     "Create": "Crear",
     "Confirm Password": "Confirmar contraseña",
     "Contact us": "Contáctanos",
@@ -35,6 +34,8 @@
     "E-Mail Address": "Correo electrónico",
     "Edit": "Editar",
     "Enter your email": "Escribe tu correo",
+    "Enter your identification number": "Escribe tu número de identificación",
+    "": "",
 
     "Full Name": "Nombre Completo",
     "Forgot Your Password?": "¿Olvidaste tu contraseña?",
@@ -50,6 +51,7 @@
     "If you did not receive the email": "Si no has recibido el email",
     "If you did not create an account, no further action is required.": "Si no has creado ninguna cuenta, puedes ignorar o eliminar este e-mail.",
     "Identification": "Identificación",
+    "Identification Number": "Número de Identificación",
 
     "Login": "Acceder",
     "Logout": "Cerrar sesión",
@@ -95,6 +97,7 @@
     "This password reset link will expire in :count minutes.": "Este enlace para restablecer la contraseña caduca en :count minutos.",
     "Tickets": "Tiquetes",
     "Travel History": "Historial de viaje",
+    "This is your workspace": "Este es tu sitio de trabajo",
 
     "Update User Information": "Actualizar Información de Usuario",
     "Update User State": "Actualizar Estado de Usuario",
@@ -110,6 +113,7 @@
     "You are receiving this email because we received a password reset request for your account.": "Estás recibiendo este email porque se ha solicitado un cambio de contraseña para tu cuenta.",
     "You will delete this record": "Eliminar este registro",
 
+    "Welcome :username !": "Bienvenido(a) :username",
     "Write something": "Escribe algo",
     "Whoops! Something went wrong.": "Oh, Algo salio mal",
     "Whoops!": "¡Ups!",

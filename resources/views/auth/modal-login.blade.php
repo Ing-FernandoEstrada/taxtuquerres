@@ -1,4 +1,4 @@
-<x-modal class="hidden" dialogclass="sm:w-96" id="modalLogin" x-data="{visible:true,data:{email:'',password:'',remember:false,_token:'{{csrf_token()}}'},
+<x-modal class="hidden" dialogclass="sm:w-96" id="modalLogin" x-data="{visible:true,data:{document:'',identification:'',password:'',remember:false,_token:'{{csrf_token()}}'},
 submit(){
     this.visible = false;
     document.querySelectorAll('.form-group').forEach(elem => {
@@ -28,21 +28,24 @@ submit(){
             }
         } else {
             /*if(data.two_factor) {
+
             } else {
             }*/
-            window.location.replace('/dashboard');
+            window.location.replace('{{route('dashboard')}}');
         }
-    })
+    });
 }
 }">
-    <x-slot name="header">
-        <label class="modal-title">{{__('Sign In')}}</label>
-    </x-slot>
-    <div class="form-group{{$errors->has('email')?' has-error':''}}">
-        <label for="email" class="form-label">{{__('E-Mail Address')}}</label>
-        <input name="email" type="text" x-model="data.email" id="email" onfocusin="this.type='email'" onfocusout="this.type='text'" @keyup.enter.prevent="if(visible) submit()" class="form-input" placeholder="{{__('Enter your email')}}" :readonly="!visible" required/>
+    <x-slot name="header"><label class="modal-title">{{__('Sign In')}}</label></x-slot>
+    <div class="form-group">
+        <label for="document" class="form-label">{{__('Document Type')}}</label>
+        <select x-model="data.document" id="document" class="form-select">{!! $documents !!}</select>
     </div>
-    <div class="form-group{{$errors->has('password')?' has-error':''}}" x-data="{passVisible:false}">
+    <div class="form-group">
+        <label for="identification" class="form-label">{{__('Identification Number')}}</label>
+        <input type="text" inputmode="numeric" x-model="data.identification" id="identification" @keyup.enter.prevent="if(visible) submit()" class="form-input" placeholder="{{__('Enter your identification number')}}" :readonly="!visible" required/>
+    </div>
+    <div class="form-group" x-data="{passVisible:false}">
         <label for="password" class="form-label">{{__('Password')}}</label>
         <div class="flex">
             <input name="password" :type="passVisible?'text':'password'" x-model="data.password" id="password" @keyup.enter.prevent="if(visible){passVisible=false;submit()}" class="form-input w-full pr-8" placeholder="{{__('Enter your password')}}" :readonly="!visible" required/>
