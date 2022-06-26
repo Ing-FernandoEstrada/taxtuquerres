@@ -1,11 +1,12 @@
-<div class="w-full" x-data="{imageUrl: '{{$vehicle->image_url}}'}">
+<div class="w-full" x-data="{}">
     <x-button type="button" class="btn btn-white" @click="window.history.back()">{{__("Back to vehicles list")}}</x-button>
     <x-card class="bg-white mx-auto">
         <div class="grid grid-cols-1 xl:grid-col-12 gap-4">
             <div class="p-4 flex justify-center items-center xl:col-span-4">
-                <img :src="imageUrl" class="rounded-full w-36 h-36" alt="{{$vehicle->number}}">
+                <img class="rounded-full w-36 h-36" src="{{$imageUrl}}" alt="{{$vehicle->number}}">
                 <x-button type="button" class="btn btn-white" @click="$refs.file.click()"><span class="fa fa-camera mr-2"></span>{{__('Select a photo')}}</x-button>
-                <input type="file" x-ref="file" class="hidden" wire:model="image" accept="image/*" @change="const reader = new FileReader();reader.onloadend = (event) => {imageUrl = event.target.result};reader.readAsDataURL($refs.file.files[0]);">
+                <input type="file" x-ref="file" class="hidden" wire:model.defer="image" accept="image/*">
+                @error('image')<label class="feedback-message">{{$message}}</label>@enderror
             </div>
             <div class="flex flex-col space-y-4 justify-center items-center xl:col-span-8">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-x-4">
@@ -48,7 +49,13 @@
             <x-button type="button" class="btn btn-indigo" wire:loading.remove wire:target="save" wire:click.prevent="save">{{$shortTitle}}</x-button>
         </x-slot>
     </x-card>
+    @livewire('vehicles.modal-cropper')
+    @section('style')
+        <link rel="stylesheet" href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/cropperjs/2.0.0-alpha.2/cropper.min.css')}}"/>
+    @endsection
     @section('script')
+        <script defer src="{{mix('/js/modals.js')}}"></script>
+        <script src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/cropperjs/2.0.0-alpha.2/cropper.min.js')}}"></script>
     <script>
         Livewire.on('success-vehicle',()=>{
             Swal.fire('{{__('Very Good!')}}','{{__('Data saved successfully.')}}','success');

@@ -12,7 +12,7 @@ use Illuminate\Validation\ValidationException;
 class VehicleManager implements ManagesVehicles
 {
 
-    function save(array $data, ?UploadedFile $image = null, ?Vehicle $vehicle = null): Vehicle|null
+    function save(array $data, ?string $urlImage = null, ?Vehicle $vehicle = null): Vehicle|null
     {
         $ruleNumber = $rulePlate = 'unique:vehicles'; // Regla para validar que sean unicos en la base de datos.
         if ($vehicle) {
@@ -35,8 +35,10 @@ class VehicleManager implements ManagesVehicles
         if ($vehicle) $vehicle->update($data);
         else $vehicle = Vehicle::create($data);
 
-        if($image && $vehicle) $vehicle->updateImage($image);
-
+        if($urlImage && $vehicle) {
+            $originalName = pathinfo($urlImage,PATHINFO_FILENAME);
+            $vehicle->updateImage(new UploadedFile($urlImage,$originalName));
+        }
         return $vehicle;
     }
 
