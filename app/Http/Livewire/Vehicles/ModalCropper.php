@@ -11,6 +11,7 @@ class ModalCropper extends Component
     use WithFileUploads;
 
     public bool $open = false;
+    //Hola
     public string $url = '/storage/img/gallery.png';
     public $tempImage = null;
     public $transmitter = null;
