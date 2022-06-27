@@ -11,6 +11,7 @@
     </head>
     <body class="background-image">
         {{$slot}}
+        @stack('modals')
         @livewireScripts
         <script src="{{mix('/js/app.js')}}"></script>
         <script src="{{asset('https://cdn.jsdelivr.net/npm/sweetalert2@11')}}"></script>
