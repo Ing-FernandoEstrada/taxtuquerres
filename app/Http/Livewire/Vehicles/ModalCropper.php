@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\Vehicles;
 
-use Illuminate\Http\UploadedFile;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
