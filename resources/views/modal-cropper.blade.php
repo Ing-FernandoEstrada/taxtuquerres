@@ -4,7 +4,7 @@
     </x-slot>
     <div>
         <div>
-            <img id="image-cropper" src="{{asset($url)}}" alt="{{__('Crop Image')}}" class="mx-auto w-full h-auto sm:w-80" x-init="@this.on('initCropper',() => {setTimeout(()=>{initCropper()},1000)})"/>
+            <img id="image-cropper" src="{{asset($url)}}" alt="{{__('Crop Image')}}" class="mx-auto w-full h-auto sm:w-80" x-init="@this.on('initCropper',() => {setTimeout(()=>{this.initCropper()},1000)})"/>
         </div>
         <div>
             <x-button type="button" class="btn btn-white" wire:loading.remove wire:target="tempImage">{{__('Cancel')}}</x-button>

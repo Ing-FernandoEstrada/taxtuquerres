@@ -8,5 +8,5 @@ use Illuminate\Http\UploadedFile;
 
 interface ManagesVehicles
 {
-    function save(array $data, UploadedFile $image, ?Vehicle $vehicle = null): Vehicle|null;
+    function save(array $data, string $urlImage, ?Vehicle $vehicle = null): Vehicle|null;
 }
