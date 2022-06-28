@@ -35,25 +35,21 @@ class VehiclesList extends Component
             $this->direction = $this->direction=='desc'?'asc':'desc';
         } else $this->sort = $sort;
     }
-    public function openForm(?int $uid = null) {
-        if (is_numeric($uid)) $this->emitTo('vehicles.users.vehicle-form','open',$uid);
-        else $this->emitTo('vehicles.create-vehicle-form','open');
-    }
+
     public function render(): Factory|View|Application
     {
-            $vehicles = Vehicle::select("v.*")->from("vehicles as v")
-                ->join("categories as c","c.id","=","category_id")
-                ->join("brands as b","b.id","=","brand_id")
-                ->where('number','like',"%$this->search%")
+        $vehicles = Vehicle::select("v.*")->from("vehicles as v")
+            ->join("categories as c","c.id","=","category_id")
+            ->join("brands as b","b.id","=","brand_id")
+            ->where('number','like',"%$this->search%")
             ->orWhere('b.name','like',"%$this->search%")
             ->orWhere('c.name','like',"%$this->search%")
             ->orWhere('model','like',"%$this->search%")
             ->orWhere('plate','like',"%$this->search%")
-                ->orWhere('quota','like',"%$this->search%")
+            ->orWhere('quota','like',"%$this->search%")
 
             ->orderBy($this->sort, $this->direction)
             ->paginate($this->rpp);
         return view('livewire.vehicles.vehicles-list',compact('vehicles'));
     }
 }
-
