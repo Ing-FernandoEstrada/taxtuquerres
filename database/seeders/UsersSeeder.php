@@ -60,14 +60,14 @@ class UsersSeeder extends Seeder
         ])->assignRole($admin);
 
         $user = User::create([
-            'identification' => 'CC1087424916',
-            'names' => 'Fernando',
-            'surnames' => 'Estrada',
-            'birthday' => '1998-01-01',
-            'email' => 'edestrada@umariana.edu.co',
-            'phone' => '3175517796',
+            'identification' => 'CC1085335964',
+            'names' => 'Mateo',
+            'surnames' => 'Alvarez',
+            'birthday' => '1996-07-06',
+            'email' => 'matalvarez@umariana.edu.co',
+            'phone' => '3023949315',
             'address' => 'Pasto, Nariño',
-            'password' => Hash::make('fernando'),
+            'password' => Hash::make('fabian'),
             'state' => 'A',
         ])->assignRole($admin);
     }
