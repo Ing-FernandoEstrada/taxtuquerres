@@ -1,6 +1,6 @@
 <x-modal dialogclass="sm:w-96" id="updatePasswordForm" class="{{$open?'show':'hidden'}}">
     <x-slot name="header">
-        <label class="modal-title">{{__('Update Password')}}</label>
+        <label class="modal-title">{{__('Update User Password')}}</label>
     </x-slot>
     <div class="flex flex-col">
         {{--<div class="form-group{{$errors->has("current_password")?" has-error":""}}">

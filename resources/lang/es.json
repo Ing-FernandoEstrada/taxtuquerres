@@ -23,6 +23,7 @@
     "Cancel": "Cancelar",
     "Category": "Categoria",
     "Company": "Empresa",
+    "Confirm new password": "Confirmar la Nueva Contraseña",
     "Create New User": "Crear nuevo usuario",
 
 
@@ -35,7 +36,7 @@
     "Edit": "Editar",
     "Enter your email": "Escribe tu correo",
     "Enter your identification number": "Escribe tu número de identificación",
-    "": "",
+    "Enter a new strong password": "Ingresa una contraseña segura",
 
     "Full Name": "Nombre Completo",
     "Forgot Your Password?": "¿Olvidaste tu contraseña?",
@@ -57,6 +58,7 @@
     "Logout": "Cerrar sesión",
 
     "Name": "Nombre",
+    "New Password": "Nueva Contraseña",
     "New user": "Nuevo usuario",
     "No records found!": "No se encontraron registros",
     "Names": "Nombres",
