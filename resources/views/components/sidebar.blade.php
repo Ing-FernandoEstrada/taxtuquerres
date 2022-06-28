@@ -11,8 +11,8 @@
     </div>
     <div class="side-section">
         <label class="side-section-title">{{__('Company')}}</label>
-        @if(request()->routeIs('vehicles.*'))<x-button type="button" class="side-item active"><span class="fa fa-car-side mr-3"></span>{{__('Vehicles')}}</x-button>
-        @else <x-button tag="a" href="{{route('vehicles.index')}}" class="side-item"><span class="fa fa-car-side mr-3"></span>{{__('Vehicles')}}</x-button>@endif
+        @if(request()->routeIs('vehicles.*'))<x-button type="button" class="side-item active"><span class="fa fa-car mr-3"></span>{{__('Vehicles')}}</x-button>
+        @else <x-button tag="a" href="{{route('vehicles.index')}}" class="side-item"><span class="fa fa-car mr-3"></span>{{__('Vehicles')}}</x-button>@endif
 
     </div>
 
