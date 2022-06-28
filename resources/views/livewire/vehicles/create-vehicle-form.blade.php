@@ -1,12 +1,9 @@
-<div class="w-full" x-data="{}" x-init="Livewire.on('success-vehicle',()=>{
-    Swal.fire('{{__('Very Good!')}}','{{__('Data saved successfully.')}}','success');
-    setTimeout(() => {window.history.back()},3000);
-    })">
+<div class="w-full" x-data="{}">
     <x-button type="button" class="btn btn-white" @click="window.history.back()">{{__("Back to vehicles list")}}</x-button>
     <x-card class="bg-white mx-auto">
         <div class="grid grid-cols-1 xl:grid-col-12 gap-4">
             <div class="p-4 flex flex-col justify-center items-center xl:col-span-4">
-                <img class="rounded-full w-36 h-36" src="{{$imageUrl}}" alt="{{$vehicle->number}}">
+                <img class="rounded-full w-36 h-36" src="{{$imageUrl}}" alt="{{__('Vehicle Image')}}">
                 <x-button type="button" class="btn btn-white" @click="$refs.file.click()"><span class="fa fa-camera mr-2"></span>{{__('Select a photo')}}</x-button>
                 <input type="file" x-ref="file" class="hidden" wire:model.defer="image" accept="image/*">
                 @error('image')<label class="feedback-message">{{$message}}</label>@enderror
@@ -52,8 +49,6 @@
             <x-button type="button" class="btn btn-indigo" wire:loading.remove wire:target="save" wire:click.prevent="save">{{$shortTitle}}</x-button>
         </x-slot>
     </x-card>
-    @push('modals')@livewire('vehicles.modal-cropper')@endpush
-    @section('style')
-        <link rel="stylesheet" href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/cropperjs/2.0.0-alpha.2/cropper.min.css')}}"/>
-    @endsection
+    @push('modals')@livewire('modal-cropper')@endpush
+    @section('style')<link rel="stylesheet" href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/cropperjs/2.0.0-alpha.2/cropper.min.css')}}"/>@endsection
 </div>

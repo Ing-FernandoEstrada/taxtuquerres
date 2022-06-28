@@ -1,6 +1,6 @@
 <div>
     <label class="page-title">{{__('Vehicles')}}</label>
-    <div class="flex justify-end">
+    <div class="flex justify-end mb-4">
         <x-button tag="a" href="{{route('vehicles.create')}}" class="btn btn-red"><span class="fa fa-user-plus mr-1"></span>{{__('New Vehicle')}}</x-button>
     </div>
     <div class="flex flex-row space-x-4">
@@ -29,7 +29,7 @@
             <tbody>
             @foreach($vehicles as $vehicle)
                 <tr>
-                    <td><img src="{{$vehicle->image_url}}" class="w-32 h-32 rounded-full" alt="{{$vehicle->plate}}"></td>
+                    <td><img src="{{$vehicle->image_url}}" class="w-32 h-32 mx-auto rounded-full" alt="{{$vehicle->plate}}"></td>
                     <td data-label="{{__('Number')}}">{{$vehicle->number}}</td>
                     <td data-label="{{__('Brand')}}">{{$vehicle->brand->name}}</td>
                     <td data-label="{{__('Model')}}">{{$vehicle->model}}</td>

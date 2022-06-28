@@ -1,4 +1,4 @@
-<x-modal x-data="{}" x-ref="modalCropper" id="modal-cropper">
+<x-modal x-data="{}" class="{{$open?'show':'hidden'}}" x-ref="modalCropper" id="modal-cropper">
     <x-slot name="header">
         <label class="modal-title">{{__('Crop Image')}}</label>
     </x-slot>
@@ -16,26 +16,19 @@
         <script defer src="{{mix('/js/modals.js')}}"></script>
         <script src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/cropperjs/2.0.0-alpha.2/cropper.min.js')}}"></script>
         <script>
-
             var cropper =  null;
-
-            function initCropper()
-            {
-                cropper = new Cropper(document.getElementById('image-cropper'),{aspectRatio:1});
-            }
-
-            function cropImage()
-            {
+            function initCropper() {cropper = new Cropper(document.getElementById('image-cropper'),{aspectRatio:1});}
+            function cropImage() {
                 let canvas=cropper.getCroppedCanvas({width:400,height:400});
-                canvas.toBlob((blob)=>
-                {
+                canvas.toBlob((blob)=> {
                     cropper.destroy();
-                    @this.upload('tempImage',blob,(filename)=>
-                    {
-                        @this.set('open',false);
-                    });
+                    @this.upload('tempImage',blob,(filename)=> {@this.set('open',false);});
                 });
             }
+            Livewire.on('success-vehicle',()=>{
+                Swal.fire('{{__('Very Good!')}}','{{__('Data saved successfully.')}}','success');
+                setTimeout(() => {window.history.back()},3000);
+            })
         </script>
     @endsection
 </x-modal>
