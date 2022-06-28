@@ -35,7 +35,10 @@ class VehiclesList extends Component
             $this->direction = $this->direction=='desc'?'asc':'desc';
         } else $this->sort = $sort;
     }
-
+    public function openForm(?int $uid = null) {
+        if (is_numeric($uid)) $this->emitTo('vehicles.users.vehicle-form','open',$uid);
+        else $this->emitTo('vehicles.create-vehicle-form','open');
+    }
     public function render(): Factory|View|Application
     {
             $vehicles = Vehicle::select("v.*")->from("vehicles as v")
