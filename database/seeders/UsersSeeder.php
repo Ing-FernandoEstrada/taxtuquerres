@@ -58,5 +58,17 @@ class UsersSeeder extends Seeder
             'password' => Hash::make('fernando'),
             'state' => 'A',
         ])->assignRole($admin);
+
+        $user = User::create([
+            'identification' => 'CC1087424916',
+            'names' => 'Fernando',
+            'surnames' => 'Estrada',
+            'birthday' => '1998-01-01',
+            'email' => 'edestrada@umariana.edu.co',
+            'phone' => '3175517796',
+            'address' => 'Pasto, Nariño',
+            'password' => Hash::make('fernando'),
+            'state' => 'A',
+        ])->assignRole($admin);
     }
 }
