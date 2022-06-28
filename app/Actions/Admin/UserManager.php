@@ -27,9 +27,7 @@ class UserManager implements ManagesUsers
             $user->update($data);
             $lastRole = $user->role->name;
             $user->syncRoles($data['role']);
-            if ($user->id == Auth::user()->id && $lastRole != $data['role']) {
-                /// Queda pendiente cerrar sesión
-            }
+            if ($user->id == Auth::user()->id && $lastRole != $data['role']) session()->push('logout',true);
         } else {
             $password = Hash::make($data['document'].$data['identification']);
             $data['state'] = 'A';

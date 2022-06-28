@@ -52,4 +52,5 @@
     @else
         <label class="font-bold">{{__('No records found!')}}</label>
     @endif
+    @if(session()->has('logout'))<script>setTimeout(()=>{document.getElementById('logout').submit()},1000)</script>@endif
 </div>

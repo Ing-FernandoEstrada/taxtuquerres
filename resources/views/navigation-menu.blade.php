@@ -17,8 +17,7 @@
 
             @if(request()->routeIs('dashboard')) <x-button type="button" class="navigation-item active btn btn-red rounded-full"><span class="fa fa-home sm:mr-1"></span><span class="hidden sm:block">{{__('Home')}}</span></x-button>
             @else <x-button tag="a" href="{{route('dashboard')}}" class="navigation-item btn btn-red rounded-full" title="{{__('Home')}}"><span class="fa fa-home sm:mr-1"></span><span class="hidden sm:block">{{__('Home')}}</span></x-button>@endif
-        <form method="post" action="{{route('logout')}}">@csrf <x-button type="submit" class=" btn btn-white rounded-full" title="{{__('Logout')}}"><span class="fa fa-sign-out sm:mr-1"></span><span class="hidden sm:block">{{__('Logout')}}</span></x-button></form>
-
+            <form id="logout" method="post" action="{{route('logout')}}">@csrf <x-button type="submit" class=" btn btn-white rounded-full" title="{{__('Logout')}}"><span class="fa fa-sign-out sm:mr-1"></span><span class="hidden sm:block">{{__('Logout')}}</span></x-button></form>
         @endauth
     </div>
 </nav>
