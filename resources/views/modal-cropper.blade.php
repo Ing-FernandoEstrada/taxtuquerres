@@ -1,4 +1,4 @@
-<x-modal x-data="{cropper: {}, initCropper(){cropper = new Cropper(document.getElementById('image-cropper'),{aspectRatio:1});}, cropImage(){let canvas=cropper.getCroppedCanvas({width:400,height:400});canvas.toBlob((blob)=>{cropper.destroy();@this.upload('tempImage',blob,(filename)=>{@this.set('open',false);});});}}" x-ref="modalCropper" id="modal-cropper">
+<x-modal x-data="{}" x-ref="modalCropper" id="modal-cropper">
     <x-slot name="header">
         <label class="modal-title">{{__('Crop Image')}}</label>
     </x-slot>
@@ -12,4 +12,30 @@
             <x-alert class="alert-blue" message="{{__('Creating Image...')}}" icon="spin fa-spinner" wire:loading.inline-flex wire:target="tempImage"/>
         </div>
     </div>
+    @section('script')
+        <script defer src="{{mix('/js/modals.js')}}"></script>
+        <script src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/cropperjs/2.0.0-alpha.2/cropper.min.js')}}"></script>
+        <script>
+
+            var cropper =  null;
+
+            function initCropper()
+            {
+                cropper = new Cropper(document.getElementById('image-cropper'),{aspectRatio:1});
+            }
+
+            function cropImage()
+            {
+                let canvas=cropper.getCroppedCanvas({width:400,height:400});
+                canvas.toBlob((blob)=>
+                {
+                    cropper.destroy();
+                    @this.upload('tempImage',blob,(filename)=>
+                    {
+                        @this.set('open',false);
+                    });
+                });
+            }
+        </script>
+    @endsection
 </x-modal>

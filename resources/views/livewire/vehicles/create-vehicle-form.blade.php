@@ -1,4 +1,7 @@
-<div class="w-full" x-data="{}">
+<div class="w-full" x-data="{}" x-init="Livewire.on('success-vehicle',()=>{
+    Swal.fire('{{__('Very Good!')}}','{{__('Data saved successfully.')}}','success');
+    setTimeout(() => {window.history.back()},3000);
+    })">
     <x-button type="button" class="btn btn-white" @click="window.history.back()">{{__("Back to vehicles list")}}</x-button>
     <x-card class="bg-white mx-auto">
         <div class="grid grid-cols-1 xl:grid-col-12 gap-4">
@@ -52,15 +55,5 @@
     @push('modals')@livewire('vehicles.modal-cropper')@endpush
     @section('style')
         <link rel="stylesheet" href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/cropperjs/2.0.0-alpha.2/cropper.min.css')}}"/>
-    @endsection
-    @section('script')
-        <script defer src="{{mix('/js/modals.js')}}"></script>
-        <script src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/cropperjs/2.0.0-alpha.2/cropper.min.js')}}"></script>
-    <script>
-        Livewire.on('success-vehicle',()=>{
-            Swal.fire('{{__('Very Good!')}}','{{__('Data saved successfully.')}}','success');
-            setTimeout(() => {window.history.back()},3000);
-        });
-    </script>
     @endsection
 </div>
