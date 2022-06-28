@@ -2,6 +2,7 @@
     <div class="side-header">
         <x-button tag="a" href="{{asset('/')}}"><img src="{{asset('/storage/img/logo.png')}}" alt="{{config('app.name')}}" class="w-full"/></x-button>
     </div>
+    @role('admin')
     <div class="side-section">
         <label class="side-section-title">{{__('Administrative Management')}}</label>
         @if(request()->routeIs('users.*'))<x-button type="button" class="side-item active"><span class="fa fa-users mr-3"></span>{{__('Users')}}</x-button>
@@ -9,11 +10,18 @@
 
 
     </div>
+    @endrole
     <div class="side-section">
         <label class="side-section-title">{{__('Company')}}</label>
+        @role('admin')
         @if(request()->routeIs('vehicles.*'))<x-button type="button" class="side-item active"><span class="fa fa-car mr-3"></span>{{__('Vehicles')}}</x-button>
         @else <x-button tag="a" href="{{route('vehicles.index')}}" class="side-item"><span class="fa fa-car mr-3"></span>{{__('Vehicles')}}</x-button>@endif
+        @endrole
 
+        @role('dispatcher')
+        @if(request()->routeIs('tickets.*'))<x-button type="button" class="side-item active"><span class="fa fa-ticket mr-3"></span>{{__('Tickets')}}</x-button>
+        @else <x-button tag="a" href="{{route('tickets.index')}}" class="side-item"><span class="fa fa-ticket mr-3"></span>{{__('Tickets')}}</x-button>@endif
+        @endrole
     </div>
 
 </div>

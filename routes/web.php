@@ -22,7 +22,7 @@ Route::get('/help', function () {
     return view('help');
 })->name('help');
 
-Route::get('/tickets', TicketsList::class)->name('tickets.index');
+//Route::get('/tickets', TicketsList::class)->name('tickets.index');
 
 Route::middleware([
     'auth:sanctum',

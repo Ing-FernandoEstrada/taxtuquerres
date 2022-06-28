@@ -6,6 +6,7 @@ use App\Contracts\ManagesUsers;
 use App\Models\Document;
 use App\Models\User;
 use App\Rules\NewPasswordRule;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
@@ -24,7 +25,11 @@ class UserManager implements ManagesUsers
                 if($count>0) throw ValidationException::withMessages(['identification' => __('Already user registered with this identification.')]);
             }
             $user->update($data);
-            $user->syncRoles($data['roles']);
+            $lastRole = $user->role->name;
+            $user->syncRoles($data['role']);
+            if ($user->id == Auth::user()->id && $lastRole != $data['role']) {
+                /// Queda pendiente cerrar sesión
+            }
         } else {
             $password = Hash::make($data['document'].$data['identification']);
             $data['state'] = 'A';
