@@ -17,3 +17,7 @@ Route::get('vehicles/create/{vehicle?}', CreateVehicleForm::class)->name('vehicl
 /* Routes for brands management */
 Route::get('brands', VehiclesList::class)->name('brands.index');
 Route::get('brands/create/{brand?}', CreateVehicleForm::class)->name('brands.create');
+
+/* Routes for Categories */
+Route::get('categories', VehiclesList::class)->name('categories.index');
+Route::get('categories/create/{category?}', CreateVehicleForm::class)->name('categories.create');
