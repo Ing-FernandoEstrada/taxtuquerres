@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin\Brands;
 
+use App\Models\Brand;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -37,17 +38,10 @@ class BrandsList extends Component
     public function render(): Factory|View|Application
     {
         $brands = Brand::select("b.*")->from("brands as b")
-            ->join("categories as c","c.id","=","category_id")
-            ->join("brands as b","b.id","=","brand_id")
-            ->where('number','like',"%$this->search%")
-            ->orWhere('b.name','like',"%$this->search%")
-            ->orWhere('c.name','like',"%$this->search%")
-            ->orWhere('model','like',"%$this->search%")
-            ->orWhere('plate','like',"%$this->search%")
-            ->orWhere('quota','like',"%$this->search%")
+            ->where('b.name','like',"%$this->search%")
 
             ->orderBy($this->sort, $this->direction)
             ->paginate($this->rpp);
-        return view('livewire.brands.brands-list',compact('brands'));
+        return view('livewire.admin.brands.brands-list',compact('brands'));
     }
 }

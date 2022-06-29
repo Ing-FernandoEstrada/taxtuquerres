@@ -16,8 +16,9 @@
         <table class="table">
             <thead>
             <tr>
-                <th>{{__('Photo')}}</th>
-                <th wire:click="sort('name')" class="cursor-pointer">{{__('name')}}<span class="mt-1 float-right fa fa-sort{{$sort=='name'?'-alpha-'.$direction:''}}"></span></th>
+                <th wire:click="sort('id')" class="cursor-pointer">{{__('ID')}}<span class="mt-1 float-right fa fa-sort{{$sort=='id'?'-alpha-'.$direction:''}}"></span></th>
+                <th wire:click="sort('name')" class="cursor-pointer">{{__('Name')}}<span class="mt-1 float-right fa fa-sort{{$sort=='name'?'-alpha-'.$direction:''}}"></span></th>
+                <th wire:click="sort('category_id')" class="cursor-pointer">{{__('Parent Category')}}<span class="mt-1 float-right fa fa-sort{{$sort=='category_id'?'-alpha-'.$direction:''}}"></span></th>
 
                 <th>{{__('Actions')}}</th>
             </tr>
@@ -25,10 +26,11 @@
             <tbody>
             @foreach($categories as $category)
                 <tr>
-                    <td><img src="{{$category->image_url}}" class="w-32 h-32 mx-auto rounded-full" alt="{{$category->plate}}"></td>
+                    <td data-label="{{__('Id')}}">{{$category->id}}</td>
                     <td data-label="{{__('Name')}}">{{$category->name}}</td>
+                    <td data-label="{{__('Parent Category')}}">{{$category->category?$category->category->name:''}}</td>
                     <td data-label="{{__('Actions')}}">
-                        <x-button tag="a" href="{{route('categories.create',compact('category'))}}" class="btn btn-white" title="{{__('Edit')}}"><span class="fa fa-edit"></span></x-button>
+                        <x-button type="button" class="btn btn-white" data-toggle="modal" data-target="#modalCategoryForm" wire:click="openForm({{$category->id}})" title="{{__('Edit')}}"><span class="fa fa-edit"></span></x-button>
                     </td>
                 </tr>
             @endforeach

@@ -2,10 +2,12 @@
 
 namespace App\Http\Livewire\Admin\Categories;
 
+use App\Models\Category;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class CategoriesList extends Component
 {
@@ -38,14 +40,7 @@ class CategoriesList extends Component
     public function render(): Factory|View|Application
     {
         $categories = Category::select("c.*")->from("categories as c")
-            ->join("categories as c", "c.id", "=", "category_id")
-            ->join("brands as b", "b.id", "=", "brand_id")
-            ->where('number', 'like', "%$this->search%")
-            ->orWhere('b.name', 'like', "%$this->search%")
-            ->orWhere('c.name', 'like', "%$this->search%")
-            ->orWhere('model', 'like', "%$this->search%")
-            ->orWhere('plate', 'like', "%$this->search%")
-            ->orWhere('quota', 'like', "%$this->search%")
+            ->where('name', 'like', "%$this->search%")
             ->orderBy($this->sort, $this->direction)
             ->paginate($this->rpp);
 

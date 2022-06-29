@@ -16,9 +16,9 @@
         <table class="table">
             <thead>
             <tr>
-                <th>{{__('Photo')}}</th>
-                <th wire:click="sort('name')" class="cursor-pointer">{{__('name')}}<span class="mt-1 float-right fa fa-sort{{$sort=='name'?'-alpha-'.$direction:''}}"></span></th>
-                <th wire:click="sort('image')" class="cursor-pointer">{{__('image')}}<span class="mt-1 float-right fa fa-sort{{$sort=='image'?'-alpha-'.$direction:''}}"></span></th>
+                <th>{{__('Image')}}</th>
+                <th wire:click="sort('id')" class="cursor-pointer">{{__('Id')}}<span class="mt-1 float-right fa fa-sort{{$sort=='id'?'-alpha-'.$direction:''}}"></span></th>
+                <th wire:click="sort('name')" class="cursor-pointer">{{__('Name')}}<span class="mt-1 float-right fa fa-sort{{$sort=='name'?'-alpha-'.$direction:''}}"></span></th>
 
                 <th>{{__('Actions')}}</th>
             </tr>
@@ -26,9 +26,9 @@
             <tbody>
             @foreach($brands as $brand)
                 <tr>
-                    <td><img src="{{$brand->image_url}}" class="w-32 h-32 mx-auto rounded-full" alt="{{$brand->plate}}"></td>
+                    <td><img src="{{asset("/storage/img/car.png")}}" class="w-32 h-32 mx-auto rounded-full" alt="{{$brand->name}}"></td>
+                    <td data-label="{{__('Id')}}">{{$brand->id}}</td>
                     <td data-label="{{__('Name')}}">{{$brand->name}}</td>
-                    <td data-label="{{__('Image')}}">{{$brand->brand->image}}</td>
                     <td data-label="{{__('Actions')}}">
                         <x-button tag="a" href="{{route('brands.create',compact('brand'))}}" class="btn btn-white" title="{{__('Edit')}}"><span class="fa fa-edit"></span></x-button>
                     </td>
