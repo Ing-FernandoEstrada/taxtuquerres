@@ -13,3 +13,7 @@ Route::get('users/{user}', ShowUser::class)->name('users.show');
 /* Routes for vehicles management */
 Route::get('vehicles', VehiclesList::class)->name('vehicles.index');
 Route::get('vehicles/create/{vehicle?}', CreateVehicleForm::class)->name('vehicles.create');
+
+/* Routes for brands management */
+Route::get('brands', VehiclesList::class)->name('brands.index');
+Route::get('brands/create/{brand?}', CreateVehicleForm::class)->name('brands.create');
