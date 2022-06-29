@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Livewire\Admin\Brands\BrandsList;
+use App\Http\Livewire\Admin\Brands\CreateBrandForm;
+use App\Http\Livewire\Admin\Categories\CategoriesList;
+use App\Http\Livewire\Admin\Categories\CreateCategoryForm;
 use App\Http\Livewire\Admin\Users\ShowUser;
 use App\Http\Livewire\Admin\Users\UsersList;
 use App\Http\Livewire\Vehicles\CreateVehicleForm;
@@ -15,9 +19,9 @@ Route::get('vehicles', VehiclesList::class)->name('vehicles.index');
 Route::get('vehicles/create/{vehicle?}', CreateVehicleForm::class)->name('vehicles.create');
 
 /* Routes for brands management */
-Route::get('brands', VehiclesList::class)->name('brands.index');
-Route::get('brands/create/{brand?}', CreateVehicleForm::class)->name('brands.create');
+Route::get('brands', BrandsList::class)->name('brands.index');
+Route::get('brands/create/{brand?}', CreateBrandForm::class)->name('brands.create');
 
 /* Routes for Categories */
-Route::get('categories', VehiclesList::class)->name('categories.index');
-Route::get('categories/create/{category?}', CreateVehicleForm::class)->name('categories.create');
+Route::get('categories', CategoriesList::class)->name('categories.index');
+//Route::get('categories/{category?}', CreateCategoryForm::class)->name('categories.show');
