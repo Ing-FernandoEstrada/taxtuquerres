@@ -6,7 +6,7 @@
 
 namespace App\Models;
 
-use App\Traits\HasImage;
+use App\Traits\VehicleHasImage;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -29,7 +29,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  */
 class Vehicle extends Model
 {
-    use HasImage;
+    use VehicleHasImage;
 
 	protected $table = 'vehicles';
 	public $timestamps = false;

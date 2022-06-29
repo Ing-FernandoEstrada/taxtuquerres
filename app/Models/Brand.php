@@ -6,6 +6,7 @@
 
 namespace App\Models;
 
+use App\Traits\BrandHasImage;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,7 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @property int $id
  * @property string $name
- * @property string|null $image
+ * @property string $image_url
  *
  * @property Collection|Vehicle[] $vehicles
  *
@@ -22,13 +23,16 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Brand extends Model
 {
+
+    use BrandHasImage;
 	protected $table = 'brands';
 	public $timestamps = false;
 
 	protected $fillable = [
 		'name',
-		'image'
 	];
+
+    protected $appends = ["image_url"];
 
 	public function vehicles()
 	{

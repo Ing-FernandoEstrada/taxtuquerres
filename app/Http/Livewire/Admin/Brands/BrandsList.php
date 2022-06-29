@@ -14,13 +14,13 @@ class BrandsList extends Component
     use WithPagination;
 
     public string $search = '';
-    public string $direction = 'desc';
-    public string $sort = 'id';
+    public string $direction = 'asc';
+    public string $sort = 'name';
     public string $rpp = '10';
     protected $listeners = ['render'];
     protected $queryString = [
         'search' => ['except' => ''],
-        'sort' => ['except' => 'id'],
+        'sort' => ['except' => 'name'],
         'direction' => ['except' => 'desc'],
         'rpp' => ['except' => '10'],
     ];

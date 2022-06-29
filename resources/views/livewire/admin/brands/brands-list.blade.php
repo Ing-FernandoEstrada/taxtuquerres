@@ -26,7 +26,7 @@
             <tbody>
             @foreach($brands as $brand)
                 <tr>
-                    <td><img src="{{asset("/storage/img/car.png")}}" class="w-32 h-32 mx-auto rounded-full" alt="{{$brand->name}}"></td>
+                    <td><img src="{{$brand->image_url}}" class="w-32 h-32 mx-auto rounded-full" alt="{{$brand->name}}"></td>
                     <td data-label="{{__('Id')}}">{{$brand->id}}</td>
                     <td data-label="{{__('Name')}}">{{$brand->name}}</td>
                     <td data-label="{{__('Actions')}}">

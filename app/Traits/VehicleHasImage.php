@@ -5,7 +5,7 @@ namespace App\Traits;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 
-trait HasImage
+trait VehicleHasImage
 {
     /**
      * Update the vehicle's image.

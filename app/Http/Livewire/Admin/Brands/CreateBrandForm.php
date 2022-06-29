@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin\Brands;
 
+use App\Contracts\ManagesBrands;
 use App\Contracts\ManagesVehicles;
 use App\Models\Brand;
 use App\Models\Category;
