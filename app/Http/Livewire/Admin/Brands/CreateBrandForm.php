@@ -52,9 +52,15 @@ class CreateBrandForm extends Component
 
     public function save(ManagesBrands $manager):void {
         $brand = $manager->save($this->data,$this->urlImageCropped, $this->brand);
-        if($brand) $this->emit('success-brand');
+        if($brand) {
+            $this->emit('saved');
+            $this->dispatchBrowserEvent('back');
+        }
         else $this->emit('error');
     }
+
+
+
     public function render()
     {
 

@@ -38,6 +38,9 @@ class Brand extends Model
 	{
 		return $this->hasMany(Vehicle::class);
 	}
+    public function free(){
+        return $this->vehicles()->count();
+    }
 
     public static function optionsHTML():string {
         $array = self::all();

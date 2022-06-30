@@ -11,7 +11,9 @@ use Illuminate\Validation\ValidationException;
 
 class BrandManager implements ManagesBrands
 {
-
+    function delete(Brand $brand):bool{
+        return $brand->delete();
+    }
     function save(array $data, ?string $urlImage = null, ?Brand $brand = null): Brand|null
     {
         $ruleName  = 'unique:brands'; // Regla para validar que sean unicos en la base de datos.

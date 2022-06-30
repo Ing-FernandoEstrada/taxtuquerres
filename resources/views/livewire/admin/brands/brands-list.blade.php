@@ -31,6 +31,7 @@
                     <td data-label="{{__('Name')}}">{{$brand->name}}</td>
                     <td data-label="{{__('Actions')}}">
                         <x-button tag="a" href="{{route('brands.create',compact('brand'))}}" class="btn btn-white" title="{{__('Edit')}}"><span class="fa fa-edit"></span></x-button>
+                        @if($brand->free())<x-button type="button" class="btn btn-red" wire:click="confirmDelete({{$brand->id}})" title="{{__('Delete')}}"><span class="fa fa-trash"></span></x-button>@endif
                     </td>
                 </tr>
             @endforeach
