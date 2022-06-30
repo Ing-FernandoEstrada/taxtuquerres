@@ -40,4 +40,11 @@ class Category extends Model
             $html .= '<option value="'.$obj->id.'">'.$obj->name.'</option>';
         } return $html;
     }
+    public static function array(string $field = 'id'):array {
+        $categories = self::all();
+        $array = [];
+        foreach ($categories as $category) {
+            $array[] = $category->$field;
+        } return $array;
+    }
 }
