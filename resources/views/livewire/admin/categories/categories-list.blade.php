@@ -1,7 +1,7 @@
 <div>
     <label class="page-title">{{__('categories')}}</label>
     <div class="flex justify-end mb-4">
-        <x-button type="button" class="btn btn-white" data-toggle="modal" data-target="#modalCategoryForm" wire:click="openForm" title="{{__('New Category')}}"><span class="fa fa-plus"></span>{{__("New Category")}}</x-button>
+        <x-button type="button" class="btn btn-red" data-toggle="modal" data-target="#modalCategoryForm" wire:click="openForm" title="{{__('New Category')}}"><span class="fa fa-plus"></span>{{__("New Category")}}</x-button>
     </div>
     <div class="flex flex-row space-x-4">
         <select id="rpp" wire:model="rpp" class="form-select w-32">
