@@ -31,6 +31,10 @@
                     cancelButtonText: '{{__('Cancel')}}',
                 }).then((result)=>{if(result.isConfirmed)Livewire.emit('delete');})
             });
+            window.addEventListener('back',event =>{
+                setTimeout(()=>{window.history.back()},3000)
+
+            })
         </script>
         @yield('script')
     </body>

@@ -25,10 +25,7 @@
                     @this.upload('tempImage',blob,(filename)=> {@this.set('open',false);});
                 });
             }
-            Livewire.on('success-vehicle',()=>{
-                Swal.fire('{{__('Very Good!')}}','{{__('Data saved successfully.')}}','success');
-                setTimeout(() => {window.history.back()},3000);
-            })
+
         </script>
     @endsection
 </x-modal>

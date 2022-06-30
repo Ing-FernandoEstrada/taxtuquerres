@@ -64,8 +64,10 @@ class CreateVehicleForm extends Component
 
     public function save(ManagesVehicles $manager):void {
         $vehicle = $manager->save($this->data,$this->urlImageCropped, $this->vehicle);
-        if($vehicle) $this->emit('success-vehicle');
-        else $this->emit('error');
+        if($vehicle) {
+            $this->emit('saved');
+            $this->dispatchBrowserEvent('back');
+        } else $this->emit('error');
     }
 
     public function render()

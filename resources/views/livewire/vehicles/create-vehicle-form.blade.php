@@ -49,6 +49,7 @@
             <x-button type="button" class="btn btn-indigo" wire:loading.remove wire:target="save" wire:click.prevent="save">{{$shortTitle}}</x-button>
         </x-slot>
     </x-card>
+
     @push('modals')@livewire('modal-cropper')@endpush
     @section('style')<link rel="stylesheet" href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/cropperjs/2.0.0-alpha.2/cropper.min.css')}}"/>@endsection
 </div>
