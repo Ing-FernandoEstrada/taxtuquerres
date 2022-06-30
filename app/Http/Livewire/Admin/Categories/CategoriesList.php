@@ -17,6 +17,7 @@ class CategoriesList extends Component
     public string $direction = 'desc';
     public string $sort = 'id';
     public string $rpp = '10';
+    public array $data = ["name"=>'',"category"=>''];
     protected $listeners = ['render'];
     protected $queryString = [
         'search' => ['except' => ''],
@@ -37,6 +38,16 @@ class CategoriesList extends Component
         } else $this->sort = $sort;
     }
 
+    public function openForm(?int $id=null)
+    {
+        if (is_numeric($id))$this->emitTo("admin.categories.create-category-form","open",$id);
+        else
+        {
+            $this->emitTo("admin.categories.create-category-form","open",$id);
+        }
+
+    }
+
     public function render(): Factory|View|Application
     {
         $categories = Category::select("c.*")->from("categories as c")
@@ -44,7 +55,7 @@ class CategoriesList extends Component
             ->orderBy($this->sort, $this->direction)
             ->paginate($this->rpp);
 
-        return view('livewire.admin.categories.categories-list');
+        return view('livewire.admin.categories.categories-list',compact("categories"));
     }
 }
 
