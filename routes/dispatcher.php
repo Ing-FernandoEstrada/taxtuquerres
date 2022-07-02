@@ -5,4 +5,4 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/tickets', TicketsList::class)->name('tickets.index');
+//Route::get('/tickets', TicketsList::class)->name('tickets.index');

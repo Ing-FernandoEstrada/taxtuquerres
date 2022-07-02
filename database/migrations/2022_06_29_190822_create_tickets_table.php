@@ -16,11 +16,12 @@ return new class extends Migration
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
             $table->string('number');
-            $table->string('start_destiny');
-            $table->string('end_destiny');
-            $table->timestamp('start_date_time');
-            $table->timestamp('end_date_time')->nullable();
+            $table->foreignId('departure_city_id')->references('id')->on('cities')->restrictOnDelete()->cascadeOnUpdate();
+            $table->foreignId('arrival_city_id')->references('id')->on('cities')->restrictOnDelete()->cascadeOnUpdate();
+            $table->timestamp('departure_time');
+            $table->timestamp('arrival_time')->nullable();
             $table->foreignId('vehicle_id')->references('id')->on('vehicles')->cascadeOnUpdate()->restrictOnDelete();
+            $table->string('price',20);
         });
     }
 
