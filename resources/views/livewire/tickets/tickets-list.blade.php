@@ -1,6 +1,6 @@
 <div>
     <label class="page-title">{{__('Available Tickets')}}</label>
-    {{--<div class="flex flex-row space-x-4">
+    <div class="flex flex-row space-x-4">
         <div class="flex items-center">
             <label class="text-xs font-semibold" for="rpp">{{__('Records per page')}}</label>
             <select id="rpp" wire:model="rpp" class="form-select">
@@ -51,5 +51,5 @@
         @endsection
     @else
         <label class="font-bold">{{__('No records found!')}}</label>
-    @endif--}}
+    @endif
 </div>
