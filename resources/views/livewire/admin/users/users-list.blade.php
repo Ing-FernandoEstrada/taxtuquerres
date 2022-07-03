@@ -1,7 +1,7 @@
 <div>
     <label class="page-title">{{__('Users')}}</label>
     <div class="flex justify-end">
-        <x-button type="button" class="btn btn-green" data-toggle="modal" data-target="#modalUserForm" wire:click="openForm"><span class="fa fa-user-plus mr-1"></span>{{__('New user')}}</x-button>
+        <x-button type="button" class="btn btn-red" data-toggle="modal" data-target="#modalUserForm" wire:click="openForm"><span class="fa fa-user-plus mr-1"></span>{{__('New user')}}</x-button>
     </div>
     <div class="flex flex-row space-x-4">
         <select id="rpp" wire:model="rpp" class="form-select w-32">
