@@ -3,10 +3,8 @@
 namespace App\Http\Livewire\Admin\Brands;
 
 use App\Contracts\ManagesBrands;
-use App\Contracts\ManagesVehicles;
 use App\Models\Brand;
-use App\Models\Category;
-use App\Models\Vehicle;
+use Illuminate\View\View;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -42,7 +40,7 @@ class CreateBrandForm extends Component
     }
 
     public function updatedImage() {
-        $this->emitTo('modal-cropper','open',['transmitter' => 'brands.create-brand-form','url' => $this->image->temporaryUrl()]);
+        $this->emitTo('modal-cropper','open',['transmitter' => 'admin.brands.create-brand-form','url' => $this->image->temporaryUrl()]);
     }
 
     public function imageCropped(array $data) {
@@ -55,15 +53,10 @@ class CreateBrandForm extends Component
         if($brand) {
             $this->emit('saved');
             $this->dispatchBrowserEvent('back');
-        }
-        else $this->emit('error');
+        } else $this->emit('error');
     }
 
-
-
-    public function render()
-    {
-
+    public function render():View {
         return view('livewire.admin.brands.create-brand-form');
     }
 }

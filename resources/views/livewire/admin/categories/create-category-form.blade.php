@@ -1,17 +1,10 @@
-<x-modal dialogclass="sm:w-96" id="updatePasswordForm" class="{{$open?'show':'hidden'}}">
-    <x-slot name="header">
-        <label class="modal-title">{{$title}}</label>
-    </x-slot>
+<x-modal dialogclass="sm:w-96" id="createCategoryForm" class="{{$open?'show':'hidden'}}">
+    <x-slot name="header"><label class="modal-title">{{$title}}</label></x-slot>
     <div class="flex flex-col">
         <div class="form-group{{$errors->has('name')?' has-error':''}}">
             <label class="form-label" for="name">{{__("Name")}}</label>
-                <input wire:model.defer="data.name" id="name" class="form-input w-full" type="text"/>
+            <input wire:model.defer="data.name" id="name" class="form-input w-full" type="text"/>
             @error('name') <label class="feedback-message">{{$message}}</label> @enderror
-        </div>
-        <div class="form-group{{$errors->has('category')?' has-error':''}}">
-            <label class="form-label" for="category">{{__("Name")}}</label>
-            <select wire:model.defer="data.category" id="category" class="form-input w-full">{!!$this->categories!!}</select>
-            @error('category') <label class="feedback-message">{{$message}}</label> @enderror
         </div>
     </div>
     <x-slot name="footer">

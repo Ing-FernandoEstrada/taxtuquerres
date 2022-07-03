@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Vehicles;
 use App\Contracts\ManagesVehicles;
 use App\Models\{Brand,Category,Vehicle};
 use Livewire\{Component, WithFileUploads};
+use Illuminate\View\View;
 
 class CreateVehicleForm extends Component
 {
@@ -70,8 +71,7 @@ class CreateVehicleForm extends Component
         } else $this->emit('error');
     }
 
-    public function render()
-    {
+    public function render():View {
         return view('livewire.vehicles.create-vehicle-form');
     }
 }

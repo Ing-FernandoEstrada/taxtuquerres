@@ -7,4 +7,6 @@ use App\Models\Category;
 interface ManagesCategories
 {
     function save(array $data, ?Category $category = null): Category|null;
+
+    function delete(Category $category): bool;
 }

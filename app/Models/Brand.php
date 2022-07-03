@@ -9,6 +9,7 @@ namespace App\Models;
 use App\Traits\BrandHasImage;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * Class Brand
@@ -34,12 +35,12 @@ class Brand extends Model
 
     protected $appends = ["image_url"];
 
-	public function vehicles()
-	{
+	public function vehicles():HasMany {
 		return $this->hasMany(Vehicle::class);
 	}
-    public function free(){
-        return $this->vehicles()->count();
+
+    public function free():bool {
+        return !$this->vehicles()->count();
     }
 
     public static function optionsHTML():string {

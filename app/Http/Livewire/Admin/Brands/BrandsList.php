@@ -16,7 +16,7 @@ class BrandsList extends Component
 
     public string $search = '';
     public string $direction = 'asc';
-    public string $sort = 'name';
+    public string $sort = 'b.name';
     public string $rpp = '10';
     public ?Brand $brand = null;
     protected $listeners = ["delete",'render'];
@@ -25,7 +25,6 @@ class BrandsList extends Component
         'sort' => ['except' => 'name'],
         'direction' => ['except' => 'desc'],
         'rpp' => ['except' => '10'],
-
     ];
 
     public function updatingSearch() {
@@ -33,25 +32,23 @@ class BrandsList extends Component
     }
 
     public function sort(string $sort):void{
-        if($sort==$this->sort) {
+        if($sort == $this->sort) {
             $this->direction = $this->direction=='desc'?'asc':'desc';
         } else $this->sort = $sort;
     }
     public function confirmDelete(Brand $brand){
-        $this->brand=$brand;
-        $this->dispatchBrowserEvent('confirmDelete',["record"=>$brand->name]);
+        $this->brand = $brand;
+        $this->dispatchBrowserEvent('confirmDelete',["record" => $brand->name]);
     }
 
     public function delete(ManagesBrands $manager){
         if ($manager->delete($this->brand)) $this->emit("deleted");
         else $this->emit("error");
-
     }
-    public function render(): Factory|View|Application
-    {
+
+    public function render(): View {
         $brands = Brand::select("b.*")->from("brands as b")
             ->where('b.name','like',"%$this->search%")
-
             ->orderBy($this->sort, $this->direction)
             ->paginate($this->rpp);
         return view('livewire.admin.brands.brands-list',compact('brands'));

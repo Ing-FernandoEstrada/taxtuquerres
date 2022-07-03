@@ -1,6 +1,6 @@
 <div class="w-full" x-data="{}">
     <x-button type="button" class="btn btn-white" @click="window.history.back()">{{__("Back to vehicles list")}}</x-button>
-    <x-card class="bg-white mx-auto">
+    <x-card class="bg-white sm:w-96 mx-auto">
         <div class="grid grid-cols-1 xl:grid-col-12 gap-4">
             <div class="p-4 flex flex-col justify-center items-center xl:col-span-4">
                 <img class="rounded-full w-36 h-36" src="{{$imageUrl}}" alt="{{__('Brand Image')}}">

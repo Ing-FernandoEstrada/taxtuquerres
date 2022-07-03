@@ -24,10 +24,6 @@ class CreateCategoryForm extends Component
         $this->title = __($this->title);
         $this->shortTitle = __($this->shortTitle);
     }
-    public function getCategoriesProperty()
-    {
-        return Category::optionsHTML();
-    }
 
     public function open($category = null):void {
         if(is_numeric($category)) $this->category = Category::find($category);
@@ -37,16 +33,14 @@ class CreateCategoryForm extends Component
 
     public function save(ManagesCategories $manager):void {
         $category = $manager->save($this->data, $this->category);
-        if($category)
-        {
+        if($category) {
             $this->emitTo('admin.categories.categories-list',"render");
-            $this->emit('save');
+            $this->emit('saved');
             $this->reset();
-        }
-        else $this->emit('error');
+        } else $this->emit('error');
     }
-    public function render()
-    {
+
+    public function render(){
         return view('livewire.admin.categories.create-category-form');
     }
 }
