@@ -6,7 +6,7 @@ use App\Actions\Fortify\CreateNewUser;
 use App\Actions\Fortify\ResetUserPassword;
 use App\Actions\Fortify\UpdateUserPassword;
 use App\Actions\Fortify\UpdateUserProfileInformation;
-use App\Http\Requests\LoginRequest;
+use Laravel\Fortify\Http\Requests\LoginRequest;
 use App\Models\Document;
 use App\Models\User;
 use Illuminate\Cache\RateLimiting\Limit;
