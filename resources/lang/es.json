@@ -53,6 +53,8 @@
     "Hello!": "¡Hola!",
     "Help": "Ayuda",
     "Home": "Principal",
+    "Hour": "Hora",
+    "Hour(s)": "Hora(s)",
 
     "Image": "Imagen",
     "Identification": "Identificación",
@@ -67,6 +69,7 @@
     "Login": "Acceder",
     "Logout": "Cerrar sesión",
 
+    "Minute(s)": "Minuto(s)",
     "Model": "Modelo",
 
     "Name": "Nombre",
@@ -120,6 +123,7 @@
     "This is your workspace": "Este es tu sitio de trabajo",
     "Trip Duration": "Duración del Viaje",
 
+    "Unit": "Unidad",
     "Update Category Information": "Actualizar Información de Categoría",
     "Update User Information": "Actualizar Información de Usuario",
     "Update User State": "Actualizar Estado de Usuario",
@@ -127,6 +131,7 @@
     "Update User Password": "Actualizar contraseña de usuario",
     "Update": "Actualizar",
 
+    "Vehicle": "Vehículo",
     "Vehicle Counting": "Conteo de Vehículos",
     "Verify Email Address": "Confirmar correo electrónico",
     "Verify Your Email Address": "Confirma tu correo electrónico",

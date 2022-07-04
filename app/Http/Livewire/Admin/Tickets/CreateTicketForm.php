@@ -3,18 +3,18 @@
 namespace App\Http\Livewire\Admin\Tickets;
 
 use App\Contracts\ManagesTickets;
-use App\Models\City;
-use App\Models\Ticket;
+use App\Models\{City, Hour, Ticket};
+use Illuminate\View\View;
 use Livewire\Component;
 
 class CreateTicketForm extends Component
 {
     public bool $open = false;
-    public array $data = ['number' => '', 'departure_city' => '', 'arrival_city' => '', 'departure_time' => '', 'arrival_time' => '', 'vehicle' => ''];
+    public array $data = ['number' => '', 'departure_city' => '', 'arrival_city' => '', 'departure_time' => '', 'trip_duration_number' => '', 'trip_duration_unit', 'vehicle' => ''];
     public ?Ticket $ticket = null;
     public string $title = 'Create New Ticket';
     public string $shortTitle = 'Create';
-    protected $listeners = ['open'];
+    protected $listeners = ['open','modal.closed' => 'close'];
 
     public function mount():void {
         if (!is_null($this->ticket)) {
@@ -42,16 +42,37 @@ class CreateTicketForm extends Component
         return City::optionsHTML();
     }
 
+    public function getHoursProperty():string {
+        return Hour::optionsHTML();
+    }
+
+    public function getTimeUnitsProperty():string {
+        $units = Hour::$timeUnits;
+        $html = '<option value="">'.__('Unit').'</option>';
+        foreach ($units as $unit) {
+            $html .= '<option value="'.$unit['id'].'">'.__($unit['unit']).'</option>';
+        }
+        return $html;
+    }
+
+    public function getVehiclesProperty():string {
+        return '';
+    }
+
     public function save(ManagesTickets $manager):void {
         $ticket = $manager->save($this->data, $this->ticket);
         if($ticket) {
             $this->emitTo('admin.tickets.tickets-list',"render");
             $this->emit('save');
-            $this->reset();
+            $this->close();
         } else $this->emit('error');
     }
 
-    public function render() {
+    public function close() {
+        $this->reset();
+    }
+
+    public function render(): View {
         return view('livewire.admin.tickets.create-ticket-form');
     }
 }
