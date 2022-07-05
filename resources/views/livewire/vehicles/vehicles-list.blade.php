@@ -1,7 +1,7 @@
 <div>
     <label class="page-title">{{__('Vehicles')}}</label>
     <div class="flex justify-end mb-4">
-        <x-button tag="a" href="{{route('vehicles.create')}}" class="btn btn-red"><span class="fa fa-user-plus mr-1"></span>{{__('New Vehicle')}}</x-button>
+        <x-button tag="a" href="{{route('vehicles.create')}}" class="btn btn-red"><span class="fa fa-plus mr-1"></span>{{__('New Vehicle')}}</x-button>
     </div>
     <div class="flex flex-row space-x-4">
         <select id="rpp" wire:model="rpp" class="form-select w-32">
