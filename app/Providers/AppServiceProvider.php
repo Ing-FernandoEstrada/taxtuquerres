@@ -2,14 +2,8 @@
 
 namespace App\Providers;
 
-use App\Actions\Admin\BrandManager;
-use App\Actions\Admin\CategoryManager;
-use App\Actions\Admin\UserManager;
-use App\Actions\Admin\VehicleManager;
-use App\Contracts\ManagesBrands;
-use App\Contracts\ManagesCategories;
-use App\Contracts\ManagesUsers;
-use App\Contracts\ManagesVehicles;
+use App\Actions\Admin\{BrandManager, CategoryManager, TicketManager, UserManager, VehicleManager};
+use App\Contracts\{ManagesBrands, ManagesCategories, ManagesTickets, ManagesUsers, ManagesVehicles};
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,7 +13,7 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function register(): void
     {
         //
     }
@@ -29,11 +23,12 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(): void
     {
         $this->app->singleton(ManagesUsers::class,UserManager::class);
         $this->app->singleton(ManagesVehicles::class,VehicleManager::class);
         $this->app->singleton(ManagesBrands::class,BrandManager::class);
         $this->app->singleton(ManagesCategories::class,CategoryManager::class);
+        $this->app->singleton(ManagesTickets::class,TicketManager::class);
     }
 }
