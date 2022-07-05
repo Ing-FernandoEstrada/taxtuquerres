@@ -18,10 +18,10 @@
         @else <x-button tag="a" href="{{route('vehicles.index')}}" class="side-item"><span class="fa fa-car mr-3"></span>{{__('Vehicles')}}</x-button>@endif
         @if(request()->routeIs('brands.*'))<x-button type="button" class="side-item active"><span class="fa fa-drupal mr-3"></span>{{__('Brands')}}</x-button>
         @else <x-button tag="a" href="{{route('brands.index')}}" class="side-item"><span class="fa fa-drupal mr-3"></span>{{__('Brands')}}</x-button>@endif
-        @if(request()->routeIs('categories.*'))<x-button type="button" class="side-item active"><span class="fa fa-products mr-3"></span>{{__('Categories')}}</x-button>
-        @else <x-button tag="a" href="{{route('categories.index')}}" class="side-item"><span class="fa fa-products mr-3"></span>{{__('Categories')}}</x-button>@endif
-        @if(request()->routeIs('tickets.*'))<x-button type="button" class="side-item active"><span class="fa fa-products mr-3"></span>{{__('Tickets')}}</x-button>
-        @else <x-button tag="a" href="{{route('tickets.index')}}" class="side-item"><span class="fa fa-products mr-3"></span>{{__('Tickets')}}</x-button>@endif
+        @if(request()->routeIs('categories.*'))<x-button type="button" class="side-item active"><span class="fa fa-product-hunt mr-3"></span>{{__('Categories')}}</x-button>
+        @else <x-button tag="a" href="{{route('categories.index')}}" class="side-item"><span class="fa fa-product-hunt mr-3"></span>{{__('Categories')}}</x-button>@endif
+        @if(request()->routeIs('tickets.*'))<x-button type="button" class="side-item active"><span class="fa fa-ticket mr-3"></span>{{__('Tickets')}}</x-button>
+        @else <x-button tag="a" href="{{route('tickets.index')}}" class="side-item"><span class="fa fa-ticket mr-3"></span>{{__('Tickets')}}</x-button>@endif
         @endrole
 
         @role('dispatcher')
