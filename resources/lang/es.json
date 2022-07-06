@@ -18,7 +18,7 @@
     "Buy": "Comprar",
     "Buy a ticket": "Comprar un tiquete",
     "Brands": "Marcas",
-
+    
     "Cancel": "Cancelar",
     "Categories": "Categorías",
     "categories": "Categorías",
@@ -141,6 +141,7 @@
 
     "You are receiving this email because we received a password reset request for your account.": "Estás recibiendo este email porque se ha solicitado un cambio de contraseña para tu cuenta.",
     "You will delete this record": "Eliminar este registro",
+    "Your user state is": "Su estado de usuario es",
 
     "Welcome :username !": "Bienvenido(a) :username",
     "Write something": "Escribe algo",
