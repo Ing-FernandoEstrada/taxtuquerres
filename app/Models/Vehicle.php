@@ -61,4 +61,15 @@ class Vehicle extends Model
     {
         return $this->belongsTo(Brand::class);
     }
+	
+	public static function optionsHTML(): string
+	{
+		$vehicles = self::all(); //Self es para llamar a los metodos estaticos de la misma clase
+		$html = '<option value="">'.__('Select an option').'</option>';
+		foreach($vehicles as $vehicle)
+		{
+			$html .= '<option value="'.$vehicle->id.'">'.$vehicle->number.' - '.$vehicle->brand->name.' - '.$vehicle->plate.'</option>';
+		}
+		return $html;
+	}
 }

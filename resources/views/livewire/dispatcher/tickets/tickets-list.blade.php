@@ -52,7 +52,7 @@
     @else
         <label class="font-bold">{{__('No records found!')}}</label>
     @endif
-    @livewire('admin.tickets.create-ticket-form')
+    @livewire('dispatcher.tickets.create-ticket-form')
     @section('script')<script src="{{mix('/js/modals.js')}}"></script>@endsection
 </div>
 

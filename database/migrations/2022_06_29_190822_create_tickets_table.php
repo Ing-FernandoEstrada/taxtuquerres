@@ -20,6 +20,8 @@ return new class extends Migration
             $table->foreignId('arrival_city_id')->references('id')->on('cities')->restrictOnDelete()->cascadeOnUpdate();
             $table->timestamp('departure_time');
             $table->timestamp('arrival_time')->nullable();
+			$table->timestamp('real_arrival_time')->nullable();
+			$table->longText('novelty')->nullable();
             $table->foreignId('vehicle_id')->references('id')->on('vehicles')->cascadeOnUpdate()->restrictOnDelete();
             $table->string('price',20);
         });

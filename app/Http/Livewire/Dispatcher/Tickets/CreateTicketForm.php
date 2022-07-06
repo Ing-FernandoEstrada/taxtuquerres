@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Livewire\Admin\Tickets;
+namespace App\Http\Livewire\Dispatcher\Tickets;
 
 use App\Contracts\ManagesTickets;
-use App\Models\{City, Hour, Ticket};
+use App\Models\{City, Hour, Ticket, Vehicle};
 use Illuminate\View\View;
 use Livewire\Component;
 
@@ -56,13 +56,13 @@ class CreateTicketForm extends Component
     }
 
     public function getVehiclesProperty():string {
-        return '';
+        return Vehicle::optionsHTML();
     }
 
     public function save(ManagesTickets $manager):void {
         $ticket = $manager->save($this->data, $this->ticket);
         if($ticket) {
-            $this->emitTo('admin.tickets.tickets-list',"render");
+            $this->emitTo('dispatcher.tickets.tickets-list',"render");
             $this->emit('save');
             $this->close();
         } else $this->emit('error');
@@ -73,6 +73,6 @@ class CreateTicketForm extends Component
     }
 
     public function render(): View {
-        return view('livewire.admin.tickets.create-ticket-form');
+        return view('livewire.dispatcher.tickets.create-ticket-form');
     }
 }

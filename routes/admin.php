@@ -4,8 +4,6 @@ use App\Http\Livewire\Admin\Brands\BrandsList;
 use App\Http\Livewire\Admin\Brands\CreateBrandForm;
 use App\Http\Livewire\Admin\Categories\CategoriesList;
 use App\Http\Livewire\Admin\Categories\CreateCategoryForm;
-use App\Http\Livewire\Admin\Tickets\CreateTicketForm;
-use App\Http\Livewire\Admin\Tickets\TicketsList;
 use App\Http\Livewire\Admin\Users\ShowUser;
 use App\Http\Livewire\Admin\Users\UsersList;
 use App\Http\Livewire\Vehicles\CreateVehicleForm;
@@ -27,7 +25,3 @@ Route::get('brands/create/{brand?}', CreateBrandForm::class)->name('brands.creat
 /* Routes for Categories */
 Route::get('categories', CategoriesList::class)->name('categories.index');
 //Route::get('categories/{category?}', CreateCategoryForm::class)->name('categories.show');
-
-/* Routes for tickets management */
-Route::get('tickets', TicketsList::class)->name('tickets.index');
-Route::get('tickets/create/{ticket?}', CreateTicketForm::class)->name('tickets.create');

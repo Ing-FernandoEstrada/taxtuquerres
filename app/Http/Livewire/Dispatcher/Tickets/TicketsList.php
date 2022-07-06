@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Admin\Tickets;
+namespace App\Http\Livewire\Dispatcher\Tickets;
 
 use App\Models\Ticket;
 use App\Models\Vehicle;
@@ -38,12 +38,12 @@ class TicketsList extends Component
     }
 
     public function openForm(?int $id=null) {
-        if (is_numeric($id))$this->emitTo("admin.tickets.create-ticket-form","open",$id);
-        else $this->emitTo("admin.tickets.create-ticket-form","open");
+        if (is_numeric($id))$this->emitTo("dispatcher.tickets.create-ticket-form","open",$id);
+        else $this->emitTo("dispatcher.tickets.create-ticket-form","open");
     }
 
     public function openVehicleDetails(Vehicle $vehicle) {
-        $this->emitTo("admin.vehicles.vehicle-details","open",$vehicle);
+        $this->emitTo("dispatcher.vehicles.vehicle-details","open",$vehicle);
     }
 
     public function render(): Factory|View|Application
@@ -58,6 +58,6 @@ class TicketsList extends Component
             //->orWhere('t.end_date_time','like',"%$this->search%")
             ->orderBy($this->sort, $this->direction)
             ->paginate($this->rpp);
-        return view('livewire.admin.tickets.tickets-list',compact("tickets"));
+        return view('livewire.dispatcher.tickets.tickets-list',compact("tickets"));
     }
 }
