@@ -6,7 +6,6 @@ use App\Actions\Fortify\CreateNewUser;
 use App\Actions\Fortify\ResetUserPassword;
 use App\Actions\Fortify\UpdateUserPassword;
 use App\Actions\Fortify\UpdateUserProfileInformation;
-use Laravel\Fortify\Http\Requests\LoginRequest;
 use App\Models\Document;
 use App\Models\User;
 use Illuminate\Cache\RateLimiting\Limit;
@@ -16,6 +15,7 @@ use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\ValidationException;
 use Laravel\Fortify\Fortify;
+use Laravel\Fortify\Http\Requests\LoginRequest;
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -40,8 +40,6 @@ class FortifyServiceProvider extends ServiceProvider
             $identification = $request->document.$request->identification;
             $user = User::where('identification',$identification)->first();
             if ($user) {
-				if ($user->state == "I")
-					throw ValidationException::withMessages(['identification' => __('auth.inactive')]);
                 if (!Hash::check($request->password,$user->password)) throw ValidationException::withMessages(['password' => __('auth.password')]);
                 return $user;
             } else throw ValidationException::withMessages(['identification' => __('auth.failed')]);
