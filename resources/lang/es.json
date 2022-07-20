@@ -1,4 +1,5 @@
 {
+    "": "",
     "About us": "¿Quiénes somos?",
     "Actions": "Acciones",
     "Address": "Dirección",
@@ -9,7 +10,7 @@
     "An error has occurred": "Se ha producido un error",
     "Arrival City": "Ciudad de Llegada",
     "Arrival Time": "Fecha de Llegada",
-	
+
 
     "Back to users list": "Volver a la lista de Usuarios",
     "Back to vehicles list": "Regresar a la lista de vehiculos",
@@ -19,7 +20,7 @@
     "Buy": "Comprar",
     "Buy a ticket": "Comprar un tiquete",
     "Brands": "Marcas",
-    
+
     "Cancel": "Cancelar",
     "Categories": "Categorías",
     "categories": "Categorías",
