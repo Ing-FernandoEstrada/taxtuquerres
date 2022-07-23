@@ -1,5 +1,4 @@
 {
-    "": "",
     "About us": "¿Quiénes somos?",
     "Actions": "Acciones",
     "Address": "Dirección",
@@ -11,7 +10,6 @@
     "Arrival City": "Ciudad de Llegada",
     "Arrival Time": "Fecha de Llegada",
 
-
     "Back to users list": "Volver a la lista de Usuarios",
     "Back to vehicles list": "Regresar a la lista de vehiculos",
     "Before proceeding, please check your email for a verification link.": "Antes de poder continuar, por favor, confirma tu correo electrónico con el enlace que te hemos enviado.",
@@ -19,6 +17,7 @@
     "Brand": "Marca",
     "Buy": "Comprar",
     "Buy a ticket": "Comprar un tiquete",
+    "Buy Ticket": "Comprar Tiquete",
     "Brands": "Marcas",
 
     "Cancel": "Cancelar",
@@ -42,6 +41,8 @@
     "Deleted!": "¡Eliminado!",
     "Departure City": "Ciudad de Salida",
     "Departure Time": "Fecha de Salida",
+    "Departure": "Salida",
+    "Arrival": "Llegada",
     "Document Type": "Tipo de documento",
 
     "Edit": "Editar",
@@ -129,6 +130,8 @@
     "Title": "Titulo",
     "This password reset link will expire in :count minutes.": "Este enlace para restablecer la contraseña caduca en :count minutos.",
     "Tickets": "Tiquetes",
+    "Ticket": "Tiquete",
+    "Tickets for sale": "Tiquetes a la venta",
     "Ticket :number": "Tiquete :number",
     "Ticket Number": "Número de tiquete",
     "Travel History": "Historial de viaje",
