@@ -1,4 +1,4 @@
 <x-guest-layout>
     <x-login/>
-    @section('script')<script src="{{mix('/js/modals.js')}}"></script>@endsection
+    @section('script')@vite('resources/js/modals.js')@endsection
 </x-guest-layout>

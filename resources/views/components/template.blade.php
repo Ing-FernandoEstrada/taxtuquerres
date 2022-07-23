@@ -4,8 +4,8 @@
         <meta charset="UTF-8">
         <title>{{session('title',config('app.name'))}}</title>
         <link rel="icon" href="{{asset('/storage/img/favicon.png')}}">
-        <link rel="stylesheet" href="{{mix('/css/app.css')}}">
-        <link rel="stylesheet" href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')}}" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/fontawesome.min.css" integrity="sha512-xX2rYBFJSj86W54Fyv1de80DWBq7zYLn2z0I9bIhQG+rxIF6XVJUpdGnsNHWRa6AvP89vtFupEPDP8eZAtu9qA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
         @yield('style')
         @livewireStyles
     </head>
@@ -13,8 +13,7 @@
         {{$slot}}
         @stack('modals')
         @livewireScripts
-        <script src="{{mix('/js/app.js')}}"></script>
-        <script src="{{asset('https://cdn.jsdelivr.net/npm/sweetalert2@11')}}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script>
             Livewire.on('saved',()=>{Swal.fire('{{__('Very Good!')}}','{{__('Data saved successfully.')}}','success')})
             Livewire.on('deleted',()=>{Swal.fire('{{__('Deleted!')}}','{{__('Selected record has been deleted.')}}','success')})
