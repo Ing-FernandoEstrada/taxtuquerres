@@ -5121,8 +5121,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 window.Pusher = (pusher_js__WEBPACK_IMPORTED_MODULE_3___default());
 window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_2__["default"]({
   broadcaster: 'pusher',
-  key: "de1e28f427cdd775376a",
-  cluster: "mt1",
+  key: "63c856c368268bc7779f",
+  cluster: "us2",
   forceTLS: true
 });
 
