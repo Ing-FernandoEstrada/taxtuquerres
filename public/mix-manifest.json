@@ -1,5 +1,9 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
-    "/js/modals.js": "/js/modals.js"
+    "/js/modals.js": "/js/modals.js",
+    "/moment/moment.js": "/moment/moment.js",
+    "/moment/locale/es.js": "/moment/locale/es.js",
+    "/js/pikaday.js": "/js/pikaday.js",
+    "/css/pikaday.css": "/css/pikaday.css"
 }

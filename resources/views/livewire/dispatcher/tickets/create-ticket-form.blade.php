@@ -6,18 +6,19 @@
             <select id="departure_city" class="form-select" wire:model.defer="data.departure_city" required>{!! $this->cities !!}</select>
             @error('departure_city')<label class="feedback-message">{{$message}}</label>@enderror
         </div>
-        <div class="form-group{{$errors->has('trip_duration')?' has-error':''}}">
+        <div class="form-group{{$errors->has('arrival_city')?' has-error':''}}">
             <label class="form-label" for="arrival_city">{{__('Arrival City')}}</label>
             <select id="arrival_city" class="form-select" wire:model.defer="data.arrival_city" required>{!! $this->cities !!}</select>
             @error('arrival_city')<label class="feedback-message">{{$message}}</label>@enderror
         </div>
-        <div class="form-group{{$errors->has('departure_time')?' has-error':''}}">
+        <div class="form-group{{$errors->has('departure_time')||$errors->has('departure_date')?' has-error':''}}">
             <label class="form-label" for="departure_date">{{__('Departure Time')}}</label>
             <div class="flex flex-row space-x-4">
-                <input type="date" id="departure_date" class="form-input flex-1" wire:model.defer="data.departure_date" autocomplete="off" required>
+                <input type="text" id="departure_date" class="form-input flex-1 pikaday" wire:model.defer="data.departure_date" autocomplete="off" required>
                 <select class="form-select" wire:model.defer="data.departure_time">{!! $this->hours !!}</select>
             </div>
             @error('departure_time')<label class="feedback-message">{{$message}}</label>@enderror
+            @error('departure_date')<label class="feedback-message">{{$message}}</label>@enderror
         </div>
         <div class="form-group{{$errors->has('trip_duration_number')||$errors->has('trip_duration_unit')?' has-error':''}}">
             <label class="form-label" for="trip_duration_number">{{__('Trip Duration')}}</label>

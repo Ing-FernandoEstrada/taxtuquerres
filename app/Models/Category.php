@@ -39,6 +39,10 @@ class Category extends Model
         return !$this->vehicles()->count();
     }
 
+    protected function name(): Attribute {
+        return new Attribute(get: fn($value) => mb_convert_case($value,MB_CASE_TITLE),set: fn($value) => mb_convert_case($value,MB_CASE_LOWER));
+    }
+
     public static function optionsHTML():string {
         $array = self::all();
         $html = '<option value="">'.__('Select an option').'</option>';

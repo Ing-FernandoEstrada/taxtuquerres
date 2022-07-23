@@ -5,23 +5,23 @@ namespace App\Models;
 class Hour
 {
     public static array $hours = [
-        ['id' => 1, 'hour' => '04:00 am'],
-        ['id' => 2, 'hour' => '05:00 am'],
-        ['id' => 3, 'hour' => '06:00 am'],
-        ['id' => 4, 'hour' => '07:00 am'],
-        ['id' => 5, 'hour' => '08:00 am'],
-        ['id' => 6, 'hour' => '09:00 am'],
-        ['id' => 7, 'hour' => '10:00 am'],
-        ['id' => 8, 'hour' => '11:00 am'],
-        ['id' => 9, 'hour' => '12:00 pm'],
-        ['id' => 10, 'hour' => '01:00 pm'],
-        ['id' => 11, 'hour' => '02:00 pm'],
-        ['id' => 12, 'hour' => '03:00 pm'],
-        ['id' => 13, 'hour' => '04:00 pm'],
-        ['id' => 14, 'hour' => '05:00 pm'],
-        ['id' => 15, 'hour' => '06:00 pm'],
-        ['id' => 16, 'hour' => '07:00 pm'],
-        ['id' => 17, 'hour' => '08:00 pm'],
+        '04:00:00',
+        '05:00:00',
+        '06:00:00',
+        '07:00:00',
+        '08:00:00',
+        '09:00:00',
+        '10:00:00',
+        '11:00:00',
+        '12:00:00',
+        '13:00:00',
+        '14:00:00',
+        '15:00:00',
+        '16:00:00',
+        '17:00:00',
+        '18:00:00',
+        '19:00:00',
+        '20:00:00',
     ];
 
     public static array $timeUnits = [
@@ -33,7 +33,7 @@ class Hour
         $hours = self::$hours;
         $html = '<option value="">'.__('Hour').'</option>';
         foreach ($hours as $hour) {
-            $html .= '<option value="'.$hour['id'].'">'.$hour['hour'].'</option>';
+            $html .= '<option value="'.$hour.'">'.$hour.'</option>';
         } return $html;
     }
 }

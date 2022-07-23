@@ -9,7 +9,7 @@
     "An error has occurred": "Se ha producido un error",
     "Arrival City": "Ciudad de Llegada",
     "Arrival Time": "Fecha de Llegada",
-	
+
 
     "Back to users list": "Volver a la lista de Usuarios",
     "Back to vehicles list": "Regresar a la lista de vehiculos",
@@ -19,7 +19,7 @@
     "Buy": "Comprar",
     "Buy a ticket": "Comprar un tiquete",
     "Brands": "Marcas",
-    
+
     "Cancel": "Cancelar",
     "Categories": "Categorías",
     "categories": "Categorías",
@@ -36,6 +36,7 @@
     "Crop Image": "Recortar Imagen",
 
     "Data saved successfully.": "Datos guardados exitosamente.",
+    "Date": "Fecha",
     "Delete": "Eliminar",
     "Deleted!": "¡Eliminado!",
     "Departure City": "Ciudad de Salida",
@@ -68,6 +69,7 @@
     "If you did not receive the email": "Si no has recibido el email",
     "If you did not request a password reset, no further action is required.": "Si no has solicitado un cambio de contraseña, puedes ignorar o eliminar este e-mail.",
 
+    "Last novelty": "Última novedad",
     "Login": "Acceder",
     "Logout": "Cerrar sesión",
 
@@ -82,8 +84,12 @@
     "New Ticket": "Nuevo Tiquete",
     "New user": "Nuevo usuario",
     "New Vehicle": "Nuevo Vehiculo",
+    "No action": "Ninguna acción",
     "No records found!": "No se encontraron registros",
+    "Novelty": "Novedad",
     "Number": "Numero",
+    "Number must be greater than :number": "El número debe ser mayor a :number",
+    "Number must be less than :number": "El número debe ser menor a :number",
 
     "Password": "Contraseña",
     "Phone": "Teléfono",
@@ -96,7 +102,8 @@
     "Quota": "Puestos",
 
     "Records per page": "Registros por página",
-    "Register": "Registro",
+    "Register": "Registrar",
+    "Register Novelty": "Registrar Novedad",
     "Regards": "Saludos",
     "Remember Me": "Recuérdame",
     "Reset Password": "Restablecer contraseña",
@@ -121,12 +128,16 @@
     "Title": "Titulo",
     "This password reset link will expire in :count minutes.": "Este enlace para restablecer la contraseña caduca en :count minutos.",
     "Tickets": "Tiquetes",
+    "Ticket :number": "Tiquete :number",
+    "Ticket Number": "Número de tiquete",
     "Travel History": "Historial de viaje",
     "This is your workspace": "Este es tu sitio de trabajo",
     "Trip Duration": "Duración del Viaje",
+    "Trip Novelty": "Novedad del Viaje",
 
     "Unit": "Unidad",
     "Update Category Information": "Actualizar Información de Categoría",
+    "Update ticket information": "Actualizar información del tiquete",
     "Update User Information": "Actualizar Información de Usuario",
     "Update User State": "Actualizar Estado de Usuario",
     "Users": "Usuarios",
@@ -135,6 +146,8 @@
 
     "Vehicle": "Vehículo",
     "Vehicle Counting": "Conteo de Vehículos",
+    "Vehicle Details": "Detalles del Vehículo",
+    "Vehicle :number (:plate)": "Vehículo :number (:plate)",
     "Verify Email Address": "Confirmar correo electrónico",
     "Verify Your Email Address": "Confirma tu correo electrónico",
     "Very Good!": "¡Muy bien!",

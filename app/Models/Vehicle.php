@@ -7,6 +7,7 @@
 namespace App\Models;
 
 use App\Traits\VehicleHasImage;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -61,7 +62,20 @@ class Vehicle extends Model
     {
         return $this->belongsTo(Brand::class);
     }
-	
+
+    protected function plate(): Attribute {
+        return new Attribute(get: fn($value) => mb_convert_case($value,MB_CASE_UPPER),set: fn($value) => mb_convert_case($value,MB_CASE_LOWER));
+    }
+
+    public static function array(string $field = 'id'):array {
+        $vehicles = self::all();
+        $array = [];
+        foreach ($vehicles as $city) {
+            $array[] = $city->$field;
+        }
+        return $array;
+    }
+
 	public static function optionsHTML(): string
 	{
 		$vehicles = self::all(); //Self es para llamar a los metodos estaticos de la misma clase

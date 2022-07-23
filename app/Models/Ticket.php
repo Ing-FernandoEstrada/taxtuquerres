@@ -19,8 +19,10 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property string $number
  * @property int $departure_city_id
  * @property int $arrival_city_id
- * @property Carbon $departure_date_time
- * @property Carbon|null $arrival_date_time
+ * @property string $departure_time
+ * @property string $trip_duration
+ * @property string $real_arrival_time
+ * @property string $novelty
  * @property int $vehicle_id
  *
  * @property City $departure_city
@@ -36,21 +38,20 @@ class Ticket extends Model
 	public $timestamps = false;
 
 	protected $casts = [
-		'vehicle_id' => 'int'
-	];
-
-	protected $dates = [
-		'start_date_time',
-		'end_date_time'
+		'vehicle_id' => 'int',
+		'arrival_city_id' => 'int',
+		'departure_city_id' => 'int',
 	];
 
 	protected $fillable = [
 		'number',
-		'start_destiny',
-		'end_destiny',
-		'start_date_time',
-		'end_date_time',
-		'vehicle_id'
+        'arrival_city_id',
+        'departure_city_id',
+		'departure_time',
+		'trip_duration',
+		'real_arrival_time',
+        'novelty',
+		'vehicle_id',
 	];
 
 	public function vehicle(): BelongsTo
@@ -72,4 +73,23 @@ class Ticket extends Model
     {
 		return $this->hasMany(InvoiceDetail::class);
 	}
+
+    public function free(): bool {
+        return !$this->invoice_details()->count();
+    }
+
+    public function tripDuration():string|null {
+        return $this->trip_duration;
+    }
+
+    public function lastNovelty():object|null {
+        $data = json_decode($this->novelty);
+        $index = (count($data)-1);
+        return $index>=0?$data[$index]:null;
+    }
+
+    public static function nextNumber():string {
+        $ticket = self::orderBy('number','desc')->first();
+        return $ticket?$ticket->number+=1:1;
+    }
 }

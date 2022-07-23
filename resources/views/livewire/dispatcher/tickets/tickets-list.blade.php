@@ -17,30 +17,30 @@
             <thead>
             <tr>
                 <th>{{__('Vehicle')}}</th>
-                <th wire:click="sort('number')" class="cursor-pointer">{{__('Ticket Number')}}<span class="mt-1 float-right fa fa-sort{{$sort=='number'?'-alpha-'.$direction:''}}"></span></th>
-                <th wire:click="sort('start_destiny')" class="cursor-pointer">{{__('Start')}}<span class="mt-1 float-right fa fa-sort{{$sort=='start_destiny'?'-alpha-'.$direction:''}}"></span></th>
-                <th wire:click="sort('start_date_time')" class="cursor-pointer">{{__('Departure Time')}}<span class="mt-1 float-right fa fa-sort{{$sort=='start_date_time'?'-alpha-'.$direction:''}}"></span></th>
-                <th wire:click="sort('end_destiny')" class="cursor-pointer">{{__('Arrival')}}<span class="mt-1 float-right fa fa-sort{{$sort=='end_destiny'?'-alpha-'.$direction:''}}"></span></th>
-                <th wire:click="sort('end_date_time')" class="cursor-pointer">{{__('Arrival Time')}}<span class="mt-1 float-right fa fa-sort{{$sort=='end_date_time'?'-alpha-'.$direction:''}}"></span></th>
+                <th wire:click="sort('number')" class="cursor-pointer">{{__('Ticket')}}<span class="mt-1 float-right fa fa-sort{{$sort=='number'?'-alpha-'.$direction:''}}"></span></th>
+                <th class="cursor-pointer">{{__('Departure')}}</th>
+                <th class="cursor-pointer">{{__('Arrival')}}</th>
+                <th wire:click="sort('trip_duration')" class="cursor-pointer">{{__('Trip Duration')}}<span class="mt-1 float-right fa fa-sort{{$sort=='trip_duration'?'-alpha-'.$direction:''}}"></span></th>
                 <th>{{__('Actions')}}</th>
             </tr>
             </thead>
             <tbody>
             @foreach($tickets as $ticket)
                 <tr>
-                    <td>
-                        <img src="{{$ticket->vehicle->image_url}}" class="w-32 h-32 mx-auto rounded-full" alt="{{$ticket->vehicle->number}}">
-                        <p>{{$ticket->vehicle->number}}</p>
-                        <x-button type="button" data-toggle="modal" data-target="#modalVehicleDetails" wire:click="openVehicleDetails" class="btn btn-sm btn-white">{{__('Show Details')}}</x-button>
+                    <td class="text-center">
+                        <x-button type="button" data-toggle="modal" data-target="#modalVehicleDetails" wire:click="openVehicleDetails({{$ticket->vehicle_id}})" class="link">{{$ticket->vehicle->number}}</x-button>
                     </td>
-                    <td data-label="{{__('Ticket Number')}}">{{$ticket->number}}</td>
-                    <td data-label="{{__('Start')}}">{{$ticket->start_destiny}}</td>
-                    <td data-label="{{__('Departure Time')}}">{{$ticket->start_date_time}}</td>
-                    <td data-label="{{__('Arrival')}}">{{$ticket->end_destiny}}</td>
-                    <td data-label="{{__('Arrival Time')}}">{{$ticket->end_date_time}}</td>
+                    <td data-label="{{__('Ticket')}}">{{$ticket->number}}</td>
+                    <td data-label="{{__('Departure')}}">{{$ticket->departure_city->name.' - '.$ticket->departure_time}}</td>
+                    <td data-label="{{__('Arrival')}}">{{"{$ticket->arrival_city->name} - ".$ticket->real_arrival_time??'Sin definir'}}</td>
+                    <td data-label="{{__('Trip Duration')}}">{{$ticket->tripDuration()}}</td>
                     <td data-label="{{__('Actions')}}">
-                        <x-button type="button"  class="btn btn-white" data-toggle="modal" data-target="#modalCreateTicketsForm" wire:click="openForm({{$ticket->id}})" title="{{__('Edit')}}"><span class="fa fa-edit"></span></x-button>
-                        @if($ticket->free())<x-button type="button" class="btn btn-red" wire:click="confirmDelete({{$ticket->id}})" title="{{__('Delete')}}"><span class="fa fa-trash"></span></x-button>@endif
+                        @if($ticket->free())
+                            <x-button type="button"  class="btn btn-white" data-toggle="modal" data-target="#modalCreateTicketsForm" wire:click="openForm({{$ticket->id}})" title="{{__('Edit')}}"><span class="fa fa-edit"></span></x-button>
+                            <x-button type="button" class="btn btn-red" wire:click="confirmDelete({{$ticket->id}})" title="{{__('Delete')}}"><span class="fa fa-trash"></span></x-button>
+                            @else
+                            <label class="font-semibold text-red-500 italic">{{__('No action')}}</label>
+                        @endif
                     </td>
                 </tr>
             @endforeach
@@ -52,7 +52,21 @@
     @else
         <label class="font-bold">{{__('No records found!')}}</label>
     @endif
+    @push('modals')
     @livewire('dispatcher.tickets.create-ticket-form')
-    @section('script')<script src="{{mix('/js/modals.js')}}"></script>@endsection
+    @livewire('vehicles.vehicle-details')
+    @endpush
+    @section('style')<link rel="stylesheet" href="{{mix('/css/pikaday.css')}}">@endsection
+    @section('script')
+        <script src="{{mix('/js/modals.js')}}"></script>
+        <script src="{{mix('/moment/moment.js')}}"></script>
+        <script src="{{mix('/moment/locale/es.js')}}"></script>
+        <script src="{{mix('/js/pikaday.js')}}"></script>
+        <script defer>
+            var element =  document.querySelector('.pikaday');
+            var picker = new Pikaday({field: element, format:'YYYY-MM-DD', onSelect:(date) => {console.log(date);element.value = picker.toString();} });
+            picker.setMinDate(new Date());
+        </script>
+    @endsection
 </div>
 

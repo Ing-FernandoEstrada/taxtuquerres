@@ -33,3 +33,5 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::get('/available-tickets',TicketsList::class)->name('available-tickets');

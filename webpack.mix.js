@@ -13,10 +13,11 @@ const {copy} = require("laravel-mix");
  */
 
 mix.js('resources/js/app.js', 'public/js')
-    .postCss('resources/css/app.css', 'public/css', [
-        require('tailwindcss'),
-    ]).copy('resources/js/modals.js', 'public/js');
+    .postCss('resources/css/app.css', 'public/css', [require('tailwindcss')])
+    .copy('resources/js/modals.js', 'public/js')
+    .copy('node_modules/moment/moment.js','public/moment')
+    .copy('node_modules/moment/locale/es.js','public/moment/locale')
+    .copy('node_modules/pikaday/pikaday.js','public/js')
+    .copy('node_modules/pikaday/css/pikaday.css','public/css');
 
-if (mix.inProduction()) {
-    mix.version();
-}
+if (mix.inProduction()) {mix.version();}

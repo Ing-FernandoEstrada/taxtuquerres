@@ -50,8 +50,11 @@
     .btn-yellow {@apply bg-yellow-500 text-white border-yellow-500 hover:bg-yellow-600 focus:bg-yellow-600 hover:border-yellow-600 focus:border-yellow-600 focus:ring-yellow-300}
     .btn-teal {@apply bg-teal-500 text-white border-teal-500 hover:bg-teal-600 focus:bg-teal-600 hover:border-teal-600 focus:border-teal-600 focus:ring-teal-300}
     .btn-white {@apply bg-gray-100 text-gray-400 border-gray-400 hover:bg-gray-200 hover:text-gray-500 focus:bg-gray-200 focus:text-gray-500 focus:ring-gray-300}
+
     .btn-close {@apply w-4 h-4 p-2 box-content bg-gray-100 text-gray-400 hover:bg-gray-200 hover:text-gray-500 focus:ring-blue-300 focus:bg-gray-200 focus:text-gray-500}
+
     .link {@apply text-blue-700 hover:underline focus:underline focus:font-semibold focus:text-violet-700 transition duration-200}
+
     .btn-group {@apply inline-flex}
     .btn-group .btn {@apply relative flex-auto focus:z-10}
     .btn-group .btn:first-child {@apply rounded-r-none}

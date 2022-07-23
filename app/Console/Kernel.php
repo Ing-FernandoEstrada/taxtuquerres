@@ -2,11 +2,21 @@
 
 namespace App\Console;
 
+use App\Console\Commands\UpdateTicket;
+use App\Jobs\UpdateTicketsNovelty;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
 {
+
+
+    protected $commands = [
+        UpdateTicket::class,
+
+    ];
+
+
     /**
      * Define the application's command schedule.
      *
@@ -15,6 +25,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+        //$schedule->command('update:ticket')->everyFourHours();
+        //$schedule->job(new UpdateTicketsNovelty)->everyMinute();
         // $schedule->command('inspire')->hourly();
     }
 
