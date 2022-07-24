@@ -33,7 +33,7 @@
         <a href="#" target="_blank" class="social-link instagram"><span class="fa fa-instagram"></span></a>
     </div>--}}
     <div class="footer-copy">
-        <label class="italic">{{__('All rights reserved.')}}</label>
-        <label class="font-semibold italic">&copy; {{date('Y')}} - {{config('app.name')}}</label>
+        <p class="italic">{{__('All rights reserved.')}}</p>
+        <p class="font-semibold italic">&copy; {{date('Y')}} - {{config('app.name')}}</p>
     </div>
 </div>

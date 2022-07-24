@@ -4,12 +4,12 @@
         <meta charset="UTF-8">
         <title>{{session('title',config('app.name'))}}</title>
         <link rel="icon" href="{{asset('/storage/img/favicon.png')}}">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/fontawesome.min.css" integrity="sha512-xX2rYBFJSj86W54Fyv1de80DWBq7zYLn2z0I9bIhQG+rxIF6XVJUpdGnsNHWRa6AvP89vtFupEPDP8eZAtu9qA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         @yield('style')
         @livewireStyles
     </head>
-    <body class="background-image">
+    <body>
         {{$slot}}
         @stack('modals')
         @livewireScripts
