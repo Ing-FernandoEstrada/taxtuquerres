@@ -6,7 +6,8 @@
         @guest()
             @if(request()->routeIs('help')) <x-button type="button" class="navigation-item active" title="{{__('Help')}}"><span class="fa fa-question-circle mt-1 sm:mr-1"></span><span class="hidden sm:block">{{__('Help')}}</span></x-button>
             @else <x-button tag="a" href="{{route('help')}}" class="navigation-item" title="{{__('Help')}}"><span class="fa fa-question-circle mt-1 sm:mr-1"></span><span class="hidden sm:block">{{__('Help')}}</span></x-button>@endif
-            <x-button type="button" class="navigation-item" data-toggle="modal" data-target="#modalLogin"><span class="fa fa-sign-in mt-1 sm:mr-1"></span><span class="hidden sm:block">{{__('Login')}}</span></x-button>
+            @if(request()->routeIs('login')) <x-button type="button" class="navigation-item active" title="{{__('Login')}}"><span class="fa fa-sign-in mt-1 sm:mr-1"></span><span class="hidden sm:block">{{__('Login')}}</span></x-button>
+            @else <x-button tag="a" href="{{route('login')}}" class="navigation-item"><span class="fa fa-sign-in mt-1 sm:mr-1"></span><span class="hidden sm:block">{{__('Login')}}</span></x-button>@endif
         @endguest
 
         @auth()

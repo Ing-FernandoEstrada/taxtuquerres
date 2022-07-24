@@ -16,6 +16,7 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
+    'company' => env('COMPANY_NAME', 'Coop. Tax. Tuquerres'),
 
     /*
     |--------------------------------------------------------------------------

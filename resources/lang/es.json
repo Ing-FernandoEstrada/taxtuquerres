@@ -26,6 +26,7 @@
     "Category": "Categoria",
     "click here to request another": "pulsa aquí para que te enviemos otro",
     "Company": "Empresa",
+    "Community service travel agency": "Agencia de viajes al servicio de la comunidad",
     "Confirm new password": "Confirmar la Nueva Contraseña",
     "Confirm Password": "Confirmar contraseña",
     "Contact us": "Contáctanos",
@@ -164,6 +165,7 @@
     "You will delete this record": "Eliminar este registro",
     "Your user state is": "Su estado de usuario es",
 
+    "Welcome to :company": "Bienvenido(a) a :company",
     "Welcome :username !": "Bienvenido(a) :username",
     "Write something": "Escribe algo",
     "Whoops! Something went wrong.": "Oh, Algo salio mal",
