@@ -2,8 +2,13 @@
 
 namespace App\Providers;
 
-use App\Actions\Admin\{BrandManager, CategoryManager, TicketManager, UserManager, VehicleManager};
-use App\Contracts\{ManagesBrands, ManagesCategories, ManagesTickets, ManagesUsers, ManagesVehicles};
+use App\Actions\Admin\{BrandManager, CategoryManager, HeadquarterManager, TicketManager, UserManager, VehicleManager};
+use App\Contracts\{ManagesBrands,
+    ManagesCategories,
+    ManagesHeadquarters,
+    ManagesTickets,
+    ManagesUsers,
+    ManagesVehicles};
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -30,5 +35,6 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(ManagesBrands::class,BrandManager::class);
         $this->app->singleton(ManagesCategories::class,CategoryManager::class);
         $this->app->singleton(ManagesTickets::class,TicketManager::class);
+        $this->app->singleton(ManagesHeadquarters::class,HeadquarterManager::class);
     }
 }
