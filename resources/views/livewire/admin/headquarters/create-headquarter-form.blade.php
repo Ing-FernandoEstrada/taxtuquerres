@@ -1,4 +1,4 @@
-<x-modal dialogclass="sm:w-96" id="createCategoryForm" class="{{$open?'show':'hidden'}}">
+<x-modal dialogclass="sm:w-96" id="createHeadquarterForm" class="{{$open?'show':'hidden'}}">
     <x-slot name="header"><label class="modal-title">{{$title}}</label></x-slot>
     <div class="flex flex-col">
         <div class="form-group{{$errors->has('name')?' has-error':''}}">

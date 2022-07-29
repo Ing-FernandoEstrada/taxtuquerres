@@ -30,7 +30,7 @@
                     <td data-label="{{__('Name')}}">{{$headquarter->name}}</td>
                     <td data-label="{{__('Address')}}">{{$headquarter->address}}</td>
                     <td data-label="{{__('Phone')}}">{{$headquarter->phone}}</td>
-                    <td data-label="{{__('Locatiom City')}}">{{$headquarter->city}}</td>
+                    <td data-label="{{__('Location City')}}">{{$headquarter->city}}</td>
 
 
                     <td data-label="{{__('Actions')}}">
@@ -45,9 +45,9 @@
             {{$headquarters->links()}}
         @endif
 
-        @section('script')<script src="{{mix('/js/modals.js')}}"></script>@endsection
+        @section('script')@vite('/js/modals.js')@endsection
     @else
         <label class="font-bold">{{__('No records found!')}}</label>
     @endif
-    @livewire('admin.headquarters.create-category-form')
+    @livewire('admin.headquarters.create-headquarter-form')
 </div>

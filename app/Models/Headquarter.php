@@ -8,6 +8,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * Class Headquarter
@@ -39,12 +41,12 @@ class Headquarter extends Model
 		'city_id'
 	];
 
-	public function city()
+	public function city():BelongsTo
 	{
 		return $this->belongsTo(City::class);
 	}
 
-	public function users()
+	public function users():HasMany
 	{
 		return $this->hasMany(User::class, 'headquarter_id');
 	}

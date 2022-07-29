@@ -146,6 +146,10 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'document' => 'documento',
+        'identification' => 'identificación',
+        'password' => 'contraseña'
+    ],
 
 ];

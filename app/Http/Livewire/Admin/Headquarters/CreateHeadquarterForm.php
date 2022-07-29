@@ -6,12 +6,9 @@ use App\Contracts\ManagesHeadquarters;
 use App\Models\Headquarter;
 use Illuminate\View\View;
 use Livewire\Component;
-use Livewire\WithFileUploads;
 
 class CreateHeadquarterForm extends Component
 {
-    use WithFileUploads;
-
     public bool $open = false;
     public array $data = ['name' => ''];
     public ?Headquarter $headquarter = null;
